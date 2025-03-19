@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@color/white">
+    android:background="@color/colorBackground">
 
     <!-- Title -->
     <TextView
@@ -47,16 +47,16 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
-        android:backgroundTint="@color/colorPrimary"
+        android:background="@drawable/for_btn"
         android:text="Add Image"
-        android:textColor="@android:color/white" />
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/btn_post"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Post"
-        android:backgroundTint="@color/colorBackground"
-        android:textColor="@android:color/black"
-        android:layout_marginTop="24dp" />
+        android:background="@drawable/for_btn"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="30dp"/>
 </LinearLayout>

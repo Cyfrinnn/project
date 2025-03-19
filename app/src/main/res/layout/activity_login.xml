@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@color/black"
+    android:background="@color/colorBackground"
     android:gravity="center"
     tools:context=".LoginActivity">
 
@@ -12,13 +12,13 @@
     <ImageView
         android:layout_marginTop="50dp"
         android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="60dp"
         android:layout_marginEnd="60dp"
-        android:background="@drawable/logowb" />
+        android:background="@drawable/logonew" />
 
     <!-- Buttons for Applicant and Employer -->
     <LinearLayout
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingBottom="16dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:gravity="center">
 
         <Button
@@ -35,7 +35,7 @@
             android:layout_height="48dp"
             android:text="@string/applicant"
             android:background="@drawable/for_btn"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:layout_marginEnd="15dp"/>
 
         <Button
@@ -44,7 +44,7 @@
             android:layout_height="48dp"
             android:text="@string/employer"
             android:background="@drawable/for_btn"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:layout_marginStart="15dp"/>
     </LinearLayout>
 
@@ -82,7 +82,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/forgot_password"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="15sp"
         android:layout_gravity="end"
         android:paddingBottom="16dp" />
@@ -92,8 +92,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/login"
-        android:background="@color/yellow"
-        android:textColor="@color/black"
+        android:background="@drawable/for_btn"
+        android:textColor="@color/white"
         android:maxWidth="300dp"
         android:layout_gravity="center"
         android:layout_marginTop="40dp"/>
@@ -104,8 +104,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/signup"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:layout_gravity="center"
         android:textSize="15sp"
-        android:paddingTop="16dp" />
+        android:layout_marginTop="5dp"/>
 </LinearLayout>
