@@ -9,4 +9,12 @@
     <string name="hint_confirm_password">Confirm Password</string>
     <string name="button_sign_up">Sign Up</string>
     <string name="login_text">Already have an account? Log in</string>
+    <string name="applicant">Applicant</string>
+    <string name="employer">Employer</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="login">Log in</string>
+    <string name="signup">New to WorkBridge? Sign up.</string>
+
 </resources>

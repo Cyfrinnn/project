@@ -1,0 +1,73 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <!-- Navigation Bar -->
+    <RelativeLayout
+        android:id="@+id/navbar"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/colorBackground"
+        android:padding="10dp"
+        android:layout_alignParentTop="true">
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="App Logo"
+            android:src="@drawable/logonew" />
+
+        <ImageView
+            android:id="@+id/iv_add_job"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:layout_toEndOf="@id/iv_logo"
+            android:contentDescription="Add Job"
+            android:src="@drawable/add"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <ImageView
+            android:id="@+id/iv_notifications"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:layout_toEndOf="@id/iv_add_job"
+            android:contentDescription="Notifications"
+            android:src="@drawable/message"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <ImageView
+            android:id="@+id/iv_profile"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/iv_notifications"
+            android:contentDescription="Profile"
+            android:src="@drawable/profile"
+            android:clickable="true"
+            android:focusable="true" />
+    </RelativeLayout>
+
+    <!-- Fragment Container -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/navbar" />
+</RelativeLayout>
