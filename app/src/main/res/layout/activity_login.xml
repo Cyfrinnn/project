@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@color/colorBackground"
+    android:background="@drawable/gradient_bg"
     android:gravity="center"
     tools:context=".LoginActivity">
 
@@ -51,29 +51,31 @@
     <!-- Email and Password Fields -->
     <EditText
         android:id="@+id/et_email_login"
-        android:layout_width="match_parent"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:hint="@string/email_hint"
         android:autofillHints="emailAddress"
         android:inputType="textEmailAddress"
         android:textColorHint="@color/colorTextLight"
         android:textColor="#000000"
-        android:backgroundTint="@color/colorTextLight"
+        android:background="@drawable/et_bg"
         android:padding="16dp"
+        android:layout_marginBottom="5dp"
         android:maxWidth="300dp"
         android:layout_marginTop="20dp"/>
 
     <EditText
         android:id="@+id/et_password_login"
-        android:layout_width="match_parent"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:hint="@string/password_hint"
         android:inputType="textPassword"
         android:autofillHints="password"
         android:textColorHint="@color/colorTextLight"
         android:textColor="#000000"
-        android:backgroundTint="@color/colorTextLight"
+        android:background="@drawable/et_bg"
         android:padding="16dp"
+        android:layout_marginTop="5dp"
         android:maxWidth="300dp"/>
 
     <!-- Forgot Password and Login Button -->
@@ -85,18 +87,19 @@
         android:textColor="@color/black"
         android:textSize="15sp"
         android:layout_gravity="end"
-        android:paddingBottom="16dp" />
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="5dp"/>
 
     <Button
         android:id="@+id/btn_login"
-        android:layout_width="match_parent"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:text="@string/login"
         android:background="@drawable/for_btn"
         android:textColor="@color/white"
         android:maxWidth="300dp"
         android:layout_gravity="center"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="20dp"/>
 
     <!-- Sign Up Link -->
     <TextView
