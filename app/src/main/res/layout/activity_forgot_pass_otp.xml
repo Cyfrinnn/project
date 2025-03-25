@@ -5,23 +5,13 @@
     android:background="@drawable/gradient_bg"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="20dp"
         android:background="@color/white"
-        android:padding="10dp">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/forgot_password"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:gravity="center"
-            android:padding="10dp"/>
-    </LinearLayout>
+        android:src="@drawable/back"
+        android:scaleType="fitCenter"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -31,8 +21,7 @@
         android:textSize="25sp"
         android:textStyle="bold"
         android:layout_gravity="center"
-        android:padding="5dp"
-        android:layout_marginTop="50dp"/>
+        android:padding="5dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -59,7 +48,7 @@
             android:inputType="number"
             android:maxLength="1"
             android:backgroundTint="@color/black"
-            android:textSize="30dp"/>
+            android:textSize="50dp"/>
 
         <EditText
             android:id="@+id/et_otp2"
@@ -70,7 +59,7 @@
             android:maxLength="1"
             android:layout_marginLeft="5dp"
             android:backgroundTint="@color/black"
-            android:textSize="30dp"/>
+            android:textSize="50dp"/>
 
         <EditText
             android:id="@+id/et_otp3"
@@ -81,7 +70,7 @@
             android:maxLength="1"
             android:layout_marginLeft="5dp"
             android:backgroundTint="@color/black"
-            android:textSize="30dp"/>
+            android:textSize="50dp"/>
 
         <EditText
             android:id="@+id/et_otp4"
@@ -92,7 +81,7 @@
             android:maxLength="1"
             android:layout_marginLeft="5dp"
             android:backgroundTint="@color/black"
-            android:textSize="30dp"/>
+            android:textSize="50dp"/>
 
         <EditText
             android:id="@+id/et_otp5"
@@ -103,7 +92,7 @@
             android:maxLength="1"
             android:layout_marginLeft="5dp"
             android:backgroundTint="@color/black"
-            android:textSize="30dp"/>
+            android:textSize="50dp"/>
 
         <EditText
             android:id="@+id/et_otp6"
@@ -114,7 +103,7 @@
             android:maxLength="1"
             android:layout_marginLeft="5dp"
             android:backgroundTint="@color/black"
-            android:textSize="30dp"/>
+            android:textSize="50dp"/>
     </LinearLayout>
 
     <Button
@@ -131,7 +120,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="10dp">
 
         <TextView
             android:layout_width="wrap_content"
