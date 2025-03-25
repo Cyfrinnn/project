@@ -20,7 +20,7 @@
         android:layout_marginEnd="60dp"
         android:background="@drawable/logonew" />
 
-    <!-- Buttons for Applicant and Employer -->
+    <!-- kailan ba to matatapos :<< -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
         android:autofillHints="emailAddress"
         android:inputType="textEmailAddress"
         android:textColorHint="@color/colorTextLight"
-        android:textColor="#ffff"
+        android:textColor="#000000"
         android:backgroundTint="@color/colorTextLight"
         android:padding="16dp"
         android:maxWidth="300dp"
@@ -71,10 +71,10 @@
         android:inputType="textPassword"
         android:autofillHints="password"
         android:textColorHint="@color/colorTextLight"
-        android:textColor="#ffff"
+        android:textColor="#000000"
         android:backgroundTint="@color/colorTextLight"
         android:padding="16dp"
-        android:maxWidth="300dp" />
+        android:maxWidth="300dp"/>
 
     <!-- Forgot Password and Login Button -->
     <TextView

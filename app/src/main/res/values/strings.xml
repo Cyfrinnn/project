@@ -16,5 +16,13 @@
     <string name="forgot_password">Forgot password?</string>
     <string name="login">Log in</string>
     <string name="signup">New to WorkBridge? Sign up.</string>
+    <string-array name="job_type_array">
+        <item>Full-Time</item>
+        <item>Part-Time</item>
+        <item>Freelance</item>
+        <item>Internship</item>
+        <item>Contract</item>
+    </string-array>
+
 
 </resources>

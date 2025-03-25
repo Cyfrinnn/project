@@ -2,6 +2,7 @@ package com.example.last
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -10,11 +11,10 @@ import androidx.appcompat.app.AppCompatActivity
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.Response
-import java.io.IOException
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import java.io.IOException
 import java.lang.reflect.Type
-import android.util.Log
 
 class LoginActivity : AppCompatActivity() {
 
@@ -22,7 +22,29 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+
+        // **Session Validation Logic**
+        val sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE)
+        val userId = sharedPreferences.getString("user_id", null)
+        val loginTypeFromSession = sharedPreferences.getString("login_type", null)
+
+        // Debug logging to verify retrieved session data
+        Log.d("SessionDebug", "Retrieved User ID: $userId, Login Type: $loginTypeFromSession")
+
+        if (userId != null && loginTypeFromSession != null) {
+            // Session exists, navigate based on login type
+            when (loginTypeFromSession) {
+                "employer" -> {
+                    startActivity(Intent(this, EmployerMainActivity::class.java))
+                }
+                "applicant" -> {
+                    startActivity(Intent(this, ApplicantMainActivity::class.java))
+                }
+            }
+            finish() // Prevent returning to login screen
+        }
+
+        setContentView(R.layout.activity_login) // Show login screen if no session exists
 
         val emailEditText: EditText = findViewById(R.id.et_email_login)
         val passwordEditText: EditText = findViewById(R.id.et_password_login)
@@ -32,89 +54,88 @@ class LoginActivity : AppCompatActivity() {
         val applicantButton: Button = findViewById(R.id.btn_applicant)
         val employerButton: Button = findViewById(R.id.btn_employer)
 
-        // Set login type as "applicant"
+        // Select login type
         applicantButton.setOnClickListener {
             loginType = "applicant"
-            Toast.makeText(this, "Login Type: $loginType", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Login Type: Applicant", Toast.LENGTH_SHORT).show()
         }
 
-        // Set login type as "employer"
         employerButton.setOnClickListener {
             loginType = "employer"
-            Toast.makeText(this, "Login Type: $loginType", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Login Type: Employer", Toast.LENGTH_SHORT).show()
         }
 
+        // Handle login button click
         loginButton.setOnClickListener {
-            val email = emailEditText.text.toString()
-            val password = passwordEditText.text.toString()
+            val email = emailEditText.text.toString().trim()
+            val password = passwordEditText.text.toString().trim()
 
-            // Check if the login type is selected
             if (loginType == null) {
                 Toast.makeText(this, "Please select Applicant or Employer", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // Log the request parameters
-            Log.d("LoginDebug", "Request Params: email=$email, loginType=$loginType")
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Email and Password are required", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
-            // Perform the actual network request for login
-            val params = mapOf(
-                "email" to email,
-                "password" to password,
-                "loginType" to (loginType ?: "")
-            )
+            // Prepare login parameters
+            val params = mapOf("email" to email, "password" to password, "loginType" to loginType!!)
+            Log.d("LoginDebug", "Request Params: $params")
 
-            // Log the request parameters map
-            Log.d("LoginDebug", "Request Params Map: $params")
-
+            // Send login request
             NetworkUtils.post("http://10.0.2.2/api/login.php", params, object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
                     runOnUiThread {
-                        Toast.makeText(this@LoginActivity, "Login failed: ${e.message}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@LoginActivity, "Network error: ${e.message}", Toast.LENGTH_SHORT).show()
+                        Log.e("LoginDebug", "Network error: ${e.message}")
                     }
                 }
 
                 override fun onResponse(call: Call, response: Response) {
                     val responseBody = response.body?.string()
-
-                    // Log the raw response
                     Log.d("LoginDebug", "Response Body: $responseBody")
 
-                    // Parse the response
+                    // Parse JSON response
                     val responseType: Type = object : TypeToken<Map<String, String>>() {}.type
                     val responseMap: Map<String, String> = Gson().fromJson(responseBody, responseType)
 
                     runOnUiThread {
-                        if (response.isSuccessful && responseMap["message"] != null) {
-                            Toast.makeText(this@LoginActivity, responseMap["message"].toString(), Toast.LENGTH_SHORT).show()
+                        if (response.isSuccessful && responseMap["status"] == "success") {
+                            Toast.makeText(this@LoginActivity, responseMap["message"] ?: "Login successful", Toast.LENGTH_SHORT).show()
 
-                            // Check the login type and navigate accordingly
-                            if (loginType == "employer") {
-                                Log.d("LoginDebug", "Navigating to EmployerMainActivity")
-                                val intent = Intent(this@LoginActivity, EmployerMainActivity::class.java)
-                                startActivity(intent)
-                            } else if (loginType == "applicant") {
-                                Log.d("LoginDebug", "Navigating to ApplicantMainActivity")
-                                val intent = Intent(this@LoginActivity, ApplicantMainActivity::class.java)
-                                startActivity(intent)
+                            // Debug logging for server response before saving
+                            Log.d("SessionDebug", "Server Response: User ID=${responseMap["user_id"]}, Login Type=${responseMap["role"]}")
+
+                            // Save session data
+                            val editor = sharedPreferences.edit()
+                            editor.putString("user_id", responseMap["user_id"])
+                            editor.putString("login_type", responseMap["role"]) // Save login type
+                            editor.apply()
+
+                            Log.d("SessionDebug", "Saved User ID: ${responseMap["user_id"]}, Login Type: ${responseMap["role"]}")
+
+                            // Navigate based on login type
+                            when (loginType) {
+                                "employer" -> startActivity(Intent(this@LoginActivity, EmployerMainActivity::class.java))
+                                "applicant" -> startActivity(Intent(this@LoginActivity, ApplicantMainActivity::class.java))
                             }
-                            finish() // Prevent going back to the LoginActivity
-                        } else if (responseMap["error"] != null) {
-                            Toast.makeText(this@LoginActivity, responseMap["error"].toString(), Toast.LENGTH_SHORT).show()
+                            finish() // Prevent returning to login
                         } else {
-                            Toast.makeText(this@LoginActivity, "Unexpected error occurred", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@LoginActivity, responseMap["error"] ?: "Login failed", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
             })
         }
 
-        // Handle forgot password logic
+        // Forgot password functionality (can be expanded later)
         forgotPasswordTextView.setOnClickListener {
-            Toast.makeText(this, "Forgot password clicked", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Forgot Password clicked", Toast.LENGTH_SHORT).show()
         }
 
-        // Navigate to sign-up page
+        // Navigate to sign-up activity
         signUpTextView.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)

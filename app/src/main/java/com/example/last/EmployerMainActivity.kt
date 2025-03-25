@@ -2,14 +2,11 @@ package com.example.last
 
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 
 class EmployerMainActivity : AppCompatActivity() {
-    private lateinit var backButton: ImageButton // Declare the back button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,18 +15,11 @@ class EmployerMainActivity : AppCompatActivity() {
         // Hide the action bar
         supportActionBar?.hide()
 
-        // Initialize the back button
-        backButton = findViewById(R.id.back_button)
-
-        // Set up the back button click listener
-        backButton.setOnClickListener {
-            supportFragmentManager.popBackStack() // Navigate back to the previous fragment
-        }
-
         // Find navigation bar icons
         val addJobIcon: ImageView = findViewById(R.id.iv_add_job)
         val notificationsIcon: ImageView = findViewById(R.id.iv_notifications)
         val profileIcon: ImageView = findViewById(R.id.iv_profile)
+        val homeButton: ImageView = findViewById(R.id.iv_home)
 
         // Debug to confirm views are initialized correctly
         Log.d("EmployerMainActivity", "Add Job Icon: $addJobIcon")
@@ -37,6 +27,11 @@ class EmployerMainActivity : AppCompatActivity() {
         Log.d("EmployerMainActivity", "Profile Icon: $profileIcon")
 
         // Set up click listeners for navigation bar icons
+        homeButton.setOnClickListener {
+            Log.d("EmployerMainActivity", "Home button clicked")
+            loadFragment(PlaceholderFragment()) // Load the home page fragment
+        }
+
         addJobIcon.setOnClickListener {
             Log.d("EmployerMainActivity", "Add Job button clicked")
             loadFragment(AddJobFragment()) // Load Add Job fragment
@@ -70,19 +65,5 @@ class EmployerMainActivity : AppCompatActivity() {
         }
 
         transaction.commit()
-
-        // Show or hide the back button based on the fragment
-        handleBackButtonVisibility(fragment)
-    }
-
-    // Show or hide the back button depending on the current fragment
-    private fun handleBackButtonVisibility(fragment: Fragment) {
-        backButton.visibility = if (fragment is AddJobFragment ||
-            fragment is NotificationsFragment || fragment is ProfileFragment
-        ) {
-            View.VISIBLE // Show the back button
-        } else {
-            View.GONE // Hide the back button
-        }
     }
 }

@@ -4,11 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.RelativeLayout
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import okhttp3.*
 import org.json.JSONObject
@@ -36,43 +32,66 @@ class SignUpActivity : AppCompatActivity() {
         val fullNameEditText: EditText = findViewById(R.id.et_full_name)
         val companyNameEditText: EditText = findViewById(R.id.et_company_name)
 
-        // Applicant fields
         val applicantEmailEditText: EditText = findViewById(R.id.et_applicant_email)
         val applicantPasswordEditText: EditText = findViewById(R.id.et_applicant_password)
         val applicantConfirmPasswordEditText: EditText = findViewById(R.id.et_applicant_confirm_password)
 
-        // Employer fields
         val employerEmailEditText: EditText = findViewById(R.id.et_employer_email)
         val employerPasswordEditText: EditText = findViewById(R.id.et_employer_password)
         val employerConfirmPasswordEditText: EditText = findViewById(R.id.et_employer_confirm_password)
 
         applicantButton.setOnClickListener {
             isApplicantSignUp = true
-            toggleSignUpFields(fullNameEditText, companyNameEditText, applicantEmailEditText, applicantPasswordEditText, applicantConfirmPasswordEditText, employerEmailEditText, employerPasswordEditText, employerConfirmPasswordEditText, signUpButton, attachFileButton)
+            toggleSignUpFields(
+                fullNameEditText, companyNameEditText,
+                applicantEmailEditText, applicantPasswordEditText, applicantConfirmPasswordEditText,
+                employerEmailEditText, employerPasswordEditText, employerConfirmPasswordEditText,
+                signUpButton, attachFileButton
+            )
             Toast.makeText(this, "Applicant selected", Toast.LENGTH_SHORT).show()
         }
 
         employerButton.setOnClickListener {
             isApplicantSignUp = false
-            toggleSignUpFields(fullNameEditText, companyNameEditText, applicantEmailEditText, applicantPasswordEditText, applicantConfirmPasswordEditText, employerEmailEditText, employerPasswordEditText, employerConfirmPasswordEditText, signUpButton, attachFileButton)
+            toggleSignUpFields(
+                fullNameEditText, companyNameEditText,
+                applicantEmailEditText, applicantPasswordEditText, applicantConfirmPasswordEditText,
+                employerEmailEditText, employerPasswordEditText, employerConfirmPasswordEditText,
+                signUpButton, attachFileButton
+            )
             Toast.makeText(this, "Employer selected", Toast.LENGTH_SHORT).show()
         }
 
         signUpButton.setOnClickListener {
-            val nameOrCompany = if (isApplicantSignUp) fullNameEditText.text.toString() else companyNameEditText.text.toString()
-            val email = if (isApplicantSignUp) applicantEmailEditText.text.toString() else employerEmailEditText.text.toString()
-            val password = if (isApplicantSignUp) applicantPasswordEditText.text.toString() else employerPasswordEditText.text.toString()
-            val confirmPassword = if (isApplicantSignUp) applicantConfirmPasswordEditText.text.toString() else employerConfirmPasswordEditText.text.toString()
+            val nameOrCompany = if (isApplicantSignUp) fullNameEditText.text.toString().trim() else companyNameEditText.text.toString().trim()
+            val email = if (isApplicantSignUp) applicantEmailEditText.text.toString().trim() else employerEmailEditText.text.toString().trim()
+            val password = if (isApplicantSignUp) applicantPasswordEditText.text.toString().trim() else employerPasswordEditText.text.toString().trim()
+            val confirmPassword = if (isApplicantSignUp) applicantConfirmPasswordEditText.text.toString().trim() else employerConfirmPasswordEditText.text.toString().trim()
 
-            // Handle sign-up logic
-            if (password == confirmPassword) {
-                if (isApplicantSignUp) {
-                    signUpApplicant(nameOrCompany, email, password)
-                } else {
-                    signUpEmployer(nameOrCompany, email, password)
-                }
+            if (nameOrCompany.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+                Toast.makeText(this, "All fields are required!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                Toast.makeText(this, "Invalid email address!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (password.length < 6) {
+                Toast.makeText(this, "Password must be at least 6 characters!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (password != confirmPassword) {
+                Toast.makeText(this, "Passwords do not match!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (isApplicantSignUp) {
+                signUpApplicant(nameOrCompany, email, password)
             } else {
-                Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
+                signUpEmployer(nameOrCompany, email, password)
             }
         }
 
@@ -83,28 +102,20 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         loginTextView.setOnClickListener {
-            // Handle login link click
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
     }
 
     private fun toggleSignUpFields(
-        fullNameEditText: EditText,
-        companyNameEditText: EditText,
-        applicantEmailEditText: EditText,
-        applicantPasswordEditText: EditText,
-        applicantConfirmPasswordEditText: EditText,
-        employerEmailEditText: EditText,
-        employerPasswordEditText: EditText,
-        employerConfirmPasswordEditText: EditText,
-        signUpButton: Button,
-        attachFileButton: Button
+        fullNameEditText: EditText, companyNameEditText: EditText,
+        applicantEmailEditText: EditText, applicantPasswordEditText: EditText, applicantConfirmPasswordEditText: EditText,
+        employerEmailEditText: EditText, employerPasswordEditText: EditText, employerConfirmPasswordEditText: EditText,
+        signUpButton: Button, attachFileButton: Button
     ) {
         if (isApplicantSignUp) {
             fullNameEditText.visibility = View.VISIBLE
             companyNameEditText.visibility = View.GONE
-
             applicantEmailEditText.visibility = View.VISIBLE
             applicantPasswordEditText.visibility = View.VISIBLE
             applicantConfirmPasswordEditText.visibility = View.VISIBLE
@@ -121,7 +132,6 @@ class SignUpActivity : AppCompatActivity() {
         } else {
             fullNameEditText.visibility = View.GONE
             companyNameEditText.visibility = View.VISIBLE
-
             applicantEmailEditText.visibility = View.GONE
             applicantPasswordEditText.visibility = View.GONE
             applicantConfirmPasswordEditText.visibility = View.GONE
@@ -139,7 +149,6 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun signUpApplicant(fullName: String, email: String, password: String) {
         val client = OkHttpClient()
-
         val json = JSONObject().apply {
             put("full_name", fullName)
             put("email", email)
@@ -148,38 +157,44 @@ class SignUpActivity : AppCompatActivity() {
 
         val body = json.toString().toRequestBody("application/json; charset=utf-8".toMediaType())
         val request = Request.Builder()
-            .url("http://10.0.2.2/api/add_applicant.php") // Update this URL with your server address if needed
+            .url("http://10.0.2.2/api/add_applicant.php")
             .post(body)
             .build()
 
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 runOnUiThread {
-                    Toast.makeText(this@SignUpActivity, "Network error: " + e.message, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@SignUpActivity, "Network error: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onResponse(call: Call, response: Response) {
                 if (response.isSuccessful) {
-                    runOnUiThread {
-                        Toast.makeText(this@SignUpActivity, "Sign up successful", Toast.LENGTH_SHORT).show()
-                        // Navigate to the confirmation activity upon successful sign-up
-                        val intent = Intent(this@SignUpActivity, ConfirmationActivity::class.java)
-                        startActivity(intent)
-                        finish()
+                    val responseBody = response.body?.string()
+                    val jsonResponse = JSONObject(responseBody ?: "")
+
+                    // Check if the server returned an error
+                    if (jsonResponse.has("error")) {
+                        runOnUiThread {
+                            Toast.makeText(this@SignUpActivity, jsonResponse.getString("error"), Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        runOnUiThread {
+                            Toast.makeText(this@SignUpActivity, "Sign up successful!", Toast.LENGTH_SHORT).show()
+                            startActivity(Intent(this@SignUpActivity, ConfirmationActivity::class.java))
+                            finish()
+                        }
                     }
                 } else {
                     runOnUiThread {
-                        Toast.makeText(this@SignUpActivity, "Sign up failed: " + response.message, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@SignUpActivity, "Sign up failed: ${response.message}", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
         })
     }
-
     private fun signUpEmployer(companyName: String, email: String, password: String) {
         val client = OkHttpClient()
-
         val json = JSONObject().apply {
             put("company_name", companyName)
             put("email", email)
@@ -195,25 +210,35 @@ class SignUpActivity : AppCompatActivity() {
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 runOnUiThread {
-                    Toast.makeText(this@SignUpActivity, "Network error: " + e.message, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@SignUpActivity, "Network error: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onResponse(call: Call, response: Response) {
                 if (response.isSuccessful) {
-                    runOnUiThread {
-                        Toast.makeText(this@SignUpActivity, "Sign up successful", Toast.LENGTH_SHORT).show()
-                        // Navigate to the confirmation activity upon successful sign-up
-                        val intent = Intent(this@SignUpActivity, ConfirmationActivity::class.java)
-                        startActivity(intent)
-                        finish()
+                    val responseBody = response.body?.string()
+                    val jsonResponse = JSONObject(responseBody ?: "")
+
+                    // Check if the server returned an error
+                    if (jsonResponse.has("error")) {
+                        runOnUiThread {
+                            Toast.makeText(this@SignUpActivity, jsonResponse.getString("error"), Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        runOnUiThread {
+                            Toast.makeText(this@SignUpActivity, "Sign up successful!", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this@SignUpActivity, ConfirmationActivity::class.java)
+                            startActivity(intent)
+                            finish()
+                        }
                     }
                 } else {
                     runOnUiThread {
-                        Toast.makeText(this@SignUpActivity, "Sign up failed: " + response.message, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@SignUpActivity, "Sign up failed: ${response.message}", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
+
         })
     }
 
@@ -221,11 +246,10 @@ class SignUpActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == PICK_FILE_REQUEST_CODE && resultCode == RESULT_OK) {
             data?.data?.let { fileUri ->
-                // Handle the file URI (e.g., display its name, upload it, etc.)
                 selectedFileUri = fileUri
                 val fileName = fileUri.path?.let { File(it).name }
                 findViewById<TextView>(R.id.tv_file_name).text = fileName
             }
         }
     }
-    }
+}

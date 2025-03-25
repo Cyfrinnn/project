@@ -15,34 +15,28 @@
         <!-- EmployerMainActivity with NoActionBar theme -->
         <activity
             android:name=".EmployerMainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        </activity>
-
-        <!-- SignUpActivity with NoActionBar -->
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity> <!-- SignUpActivity with NoActionBar -->
         <activity
             android:name=".SignUpActivity"
             android:exported="true"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <!-- MainActivity -->
+            android:theme="@style/AppTheme.NoActionBar" /> <!-- MainActivity -->
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
-
-        <!-- LoginActivity set as the launcher activity -->
+            android:exported="true" /> <!-- LoginActivity set as the launcher activity -->
         <activity
             android:name=".LoginActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- ConfirmationActivity -->
+        </activity> <!-- ConfirmationActivity -->
         <activity
             android:name=".ConfirmationActivity"
-            android:exported="true" />
-
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
+
 </manifest>
