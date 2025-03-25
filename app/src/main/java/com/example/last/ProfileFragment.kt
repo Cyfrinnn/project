@@ -23,24 +23,38 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Find the logout button in the layout
+        // Find the logout button
         val logoutButton: Button = view.findViewById(R.id.btn_logout)
 
         // Set click listener for logout
         logoutButton.setOnClickListener {
-            // Clear session data from SharedPreferences
-            val sharedPreferences =
-                requireActivity().getSharedPreferences("UserSession", Context.MODE_PRIVATE)
-            val editor = sharedPreferences.edit()
-            editor.clear()
-            editor.apply()
+            // Show confirmation dialog
+            val builder = android.app.AlertDialog.Builder(requireContext())
+            builder.setTitle("Confirm Logout")
+            builder.setMessage("u sure bro?")
 
-            // Redirect the user to LoginActivity
-            val intent = Intent(requireActivity(), LoginActivity::class.java)
-            startActivity(intent)
+            builder.setPositiveButton("Yes") { _, _ ->
+                // Clear session data from SharedPreferences
+                val sharedPreferences =
+                    requireActivity().getSharedPreferences("UserSession", Context.MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                editor.clear()
+                editor.apply()
 
-            // Close the current activity to prevent going back
-            requireActivity().finish()
+                // Redirect the user to LoginActivity
+                val intent = Intent(requireActivity(), LoginActivity::class.java)
+                startActivity(intent)
+
+                // Close the current activity to prevent going back
+                requireActivity().finish()
+            }
+
+            builder.setNegativeButton("No") { dialog, _ ->
+                // Dismiss the dialog
+                dialog.dismiss()
+            }
+
+            builder.create().show()
         }
     }
 }
