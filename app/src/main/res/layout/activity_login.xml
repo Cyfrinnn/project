@@ -86,9 +86,9 @@
         android:textColor="@color/black"
         android:textSize="15sp"
         android:layout_gravity="end"
-
         android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"/>
+
     <Button
         android:id="@+id/btn_login"
         android:layout_width="320dp"
@@ -99,9 +99,6 @@
         android:maxWidth="300dp"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"/>
-
-
-
 
     <!-- Sign Up Link -->
     <TextView

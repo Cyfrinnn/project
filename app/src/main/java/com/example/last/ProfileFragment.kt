@@ -31,7 +31,7 @@ class ProfileFragment : Fragment() {
             // Show confirmation dialog
             val builder = android.app.AlertDialog.Builder(requireContext())
             builder.setTitle("Confirm Logout")
-            builder.setMessage("u sure bro?")
+            builder.setMessage("U SURE BRO?")
 
             builder.setPositiveButton("Yes") { _, _ ->
                 // Clear session data from SharedPreferences

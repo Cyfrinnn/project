@@ -11,11 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <!-- EmployerMainActivity with NoActionBar theme -->
+        <activity
+            android:name=".ForgotPasswordReset"
+            android:exported="false" />
+        <activity
+            android:name=".ForgotPassOTP"
+            android:exported="false" />
+        <activity
+            android:name=".ForgotPassPhoneNumber"
+            android:exported="false" /> <!-- EmployerMainActivity with NoActionBar theme -->
         <activity
             android:name=".EmployerMainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity> <!-- SignUpActivity with NoActionBar -->
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" /> <!-- SignUpActivity with NoActionBar -->
         <activity
             android:name=".SignUpActivity"
             android:exported="true"
