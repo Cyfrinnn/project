@@ -2,6 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_bg"
     android:padding="16dp">
 
     <LinearLayout
@@ -69,7 +70,9 @@
             android:id="@+id/btn_submit_job"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/for_btn"
+            android:textColor="@color/white"
             android:text="Submit Job"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="20dp" />
     </LinearLayout>
 </ScrollView>

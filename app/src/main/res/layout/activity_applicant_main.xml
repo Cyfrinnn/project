@@ -3,7 +3,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground">
+    android:background="@drawable/gradient_bg">
 
     <ImageButton
         android:id="@+id/back_button"
@@ -22,10 +22,9 @@
     <RelativeLayout
         android:id="@+id/navbar"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@color/colorBackground"
-        android:padding="10dp"
-        android:layout_marginTop="50dp"> <!-- Moves navbar down -->
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="10dp"> <!-- Moves navbar down -->
 
         <ImageView
             android:id="@+id/iv_logo"
@@ -35,7 +34,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="16dp"
             android:contentDescription="App Logo"
-            android:src="@drawable/logonew" />
+            android:src="@drawable/logo_new" />
 
         <ImageView
             android:id="@+id/iv_search"

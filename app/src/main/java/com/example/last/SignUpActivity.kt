@@ -157,7 +157,7 @@ class SignUpActivity : AppCompatActivity() {
 
         val body = json.toString().toRequestBody("application/json; charset=utf-8".toMediaType())
         val request = Request.Builder()
-            .url("http://10.0.2.2/api/add_applicant.php")
+            .url("http://192.168.1.10/api/add_applicant.php")
             .post(body)
             .build()
 
@@ -203,7 +203,7 @@ class SignUpActivity : AppCompatActivity() {
 
         val body = json.toString().toRequestBody("application/json; charset=utf-8".toMediaType())
         val request = Request.Builder()
-            .url("http://10.0.2.2/api/add_employer.php")
+            .url("http://192.168.1.10/api/add_employer.php")
             .post(body)
             .build()
 

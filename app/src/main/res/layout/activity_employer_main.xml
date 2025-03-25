@@ -3,7 +3,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground">
+    android:background="@drawable/gradient_bg">
 
     <!-- Navigation Bar -->
     <LinearLayout
@@ -11,9 +11,8 @@
         android:id="@+id/navbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorBackground"
-        android:padding="10dp"
-        android:layout_marginTop="50dp"> <!-- Moves navbar down -->
+        android:background="@color/white"
+        android:padding="10dp"> <!-- Moves navbar down -->
 
 
         <ImageView

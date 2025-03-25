@@ -85,7 +85,7 @@ class LoginActivity : AppCompatActivity() {
             Log.d("LoginDebug", "Request Params: $params")
 
             // Send login request
-            NetworkUtils.post("http://10.0.2.2/api/login.php", params, object : Callback {
+            NetworkUtils.post("http://192.168.1.10/api/login.php", params, object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
                     runOnUiThread {
                         Toast.makeText(this@LoginActivity, "Network error: ${e.message}", Toast.LENGTH_SHORT).show()

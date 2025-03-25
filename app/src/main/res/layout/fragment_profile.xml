@@ -3,13 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorBackground"
+    android:background="@drawable/gradient_bg"
     android:padding="16dp">
 
+    <!-- Profile Screen Header -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Profile Screen"
+        android:text="@string/profile_screen"
         android:textSize="24sp"
         android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/logout"
+        android:layout_gravity="center"
+        android:padding="16dp"
+        android:background="@drawable/for_logout_btn"
+        android:textColor="@android:color/white" />
+
+
 </LinearLayout>
