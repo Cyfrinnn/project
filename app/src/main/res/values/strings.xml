@@ -17,6 +17,7 @@
     <string name="password_hint">Password</string>
     <string name="forgot_password">Forgot password?</string>
     <string name="login">Log in</string>
+    <string name="edit_prof">Edit profile</string>
     <string name="signup">New to WorkBridge? Sign up.</string>
     <string-array name="job_type_array">
         <item>Full-Time</item>

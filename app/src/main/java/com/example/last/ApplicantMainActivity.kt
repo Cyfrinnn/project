@@ -19,7 +19,7 @@ class ApplicantMainActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         // Initialize the back button
-        backButton = findViewById(R.id.back_button)
+        backButton = findViewById(R.id.iv_home)
 
         // Set up the back button click listener
         backButton.setOnClickListener {
@@ -27,7 +27,7 @@ class ApplicantMainActivity : AppCompatActivity() {
         }
 
         // Find navigation bar icons
-        val addJobIcon: ImageView = findViewById(R.id.iv_search)
+        val addJobIcon: ImageView = findViewById(R.id.iv_add_job)
         val notificationsIcon: ImageView = findViewById(R.id.iv_notifications)
         val profileIcon: ImageView = findViewById(R.id.iv_profile)
 

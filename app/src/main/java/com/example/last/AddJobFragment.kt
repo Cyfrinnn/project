@@ -49,7 +49,7 @@ class AddJobFragment : Fragment() {
             val jobType = jobTypeSpinner.selectedItem.toString()
 
             // Replace with the actual logged-in employer ID
-            val employerId = "2" // Replace with dynamic fetching later if needed
+            val employerId = "26" // Replace with dynamic fetching later if needed
 
             // Validate inputs
             if (title.isEmpty() || company.isEmpty() || description.isEmpty() || location.isEmpty()) {
@@ -102,19 +102,21 @@ class AddJobFragment : Fragment() {
             }
 
             override fun onResponse(call: Call, response: Response) {
-                if (response.isSuccessful) {
-                    // Handle success
-                    requireActivity().runOnUiThread {
-                        Toast.makeText(requireContext(), "Job posted successfully!", Toast.LENGTH_SHORT).show()
-                        clearFormFields()
+                response.use {
+                    if (it.isSuccessful) {
+                        val responseBody = it.body?.string() ?: "No Response Body"
+                        requireActivity().runOnUiThread {
+                            Toast.makeText(requireContext(), "Job posted successfully!", Toast.LENGTH_SHORT).show()
+                            clearFormFields()
+                        }
+                        Log.d("AddJobFragment", "Response Body: $responseBody")
+                    } else {
+                        val errorBody = it.body?.string() ?: "No Error Body"
+                        requireActivity().runOnUiThread {
+                            Toast.makeText(requireContext(), "Server error: ${it.message}", Toast.LENGTH_SHORT).show()
+                        }
+                        Log.e("AddJobFragment", "Error Body: $errorBody")
                     }
-                    Log.d("AddJobFragment", "Server response: ${response.body?.string()}")
-                } else {
-                    // Handle server errors
-                    requireActivity().runOnUiThread {
-                        Toast.makeText(requireContext(), "Server error: ${response.message}", Toast.LENGTH_SHORT).show()
-                    }
-                    Log.e("AddJobFragment", "Server error: ${response.message}")
                 }
             }
         })

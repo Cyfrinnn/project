@@ -5,77 +5,81 @@
     android:orientation="vertical"
     android:background="@drawable/gradient_bg">
 
-    <!-- Navigation Bar -->
     <LinearLayout
-        android:gravity="center"
-        android:id="@+id/navbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:padding="20dp"> <!-- Moves navbar down -->
-
-        <ImageView
-            android:id="@+id/iv_logo"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginRight="50dp"
-            android:contentDescription="App Logo"
-            android:src="@drawable/logo_new" />
+        android:gravity="center"
+        android:padding="20dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center">
+            android:orientation="vertical"
+            android:gravity="center">
 
             <ImageView
-                android:id="@+id/iv_home"
-                android:layout_width="30dp"
+                android:id="@+id/circularImageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/for_profile_iv"/>
+
+            <Button
+                android:layout_width="100dp"
                 android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:layout_marginEnd="10dp"
-                android:layout_toEndOf="@id/iv_logo"
-                android:clickable="true"
-                android:contentDescription="Home"
-                android:focusable="true"
-                android:src="@drawable/home"/>
-
-            <ImageView
-                android:id="@+id/iv_add_job"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:layout_marginEnd="10dp"
-                android:layout_toEndOf="@id/iv_logo"
-                android:clickable="true"
-                android:contentDescription="Add Job"
-                android:focusable="true"
-                android:src="@drawable/add" />
-
-            <ImageView
-                android:id="@+id/iv_notifications"
-                android:layout_width="30dp"
-                android:layout_height="25dp"
-                android:layout_gravity="center"
-                android:layout_marginEnd="10dp"
-                android:layout_toEndOf="@id/iv_add_job"
-                android:contentDescription="Notifications"
-                android:src="@drawable/message"
-                android:clickable="true"
-                android:focusable="true" />
-
-            <ImageView
-                android:id="@+id/iv_profile"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentEnd="true"
-                android:layout_gravity="center"
-                android:layout_toEndOf="@id/iv_notifications"
-                android:contentDescription="Profile"
-                android:src="@drawable/profile"
-                android:clickable="true"
-                android:focusable="true" />
+                android:background="@drawable/for_btn"
+                android:textColor="@color/white"
+                android:text="@string/edit_prof"
+                android:layout_marginTop="5dp"/>
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Company Name"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_gravity="top"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="companyname@gmail.com"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_gravity="top"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Description: "
+            android:lines="6"
+            android:textSize="14sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Address: "
+            android:layout_marginTop="20dp"
+            android:lines="4"
+            android:textColor="@color/black"/>
     </LinearLayout>
 
     <Button
@@ -86,7 +90,7 @@
         android:layout_gravity="center"
         android:padding="16dp"
         android:background="@drawable/for_logout_btn"
-        android:textColor="@android:color/white" />
-
+        android:textColor="@android:color/white"
+        android:layout_marginTop="150dp"/>
 
 </LinearLayout>
