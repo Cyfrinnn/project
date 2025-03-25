@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <ImageButton
+        android:contentDescription="@string/back_btn"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_margin="20dp"
@@ -16,7 +17,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter One Time Password"
+        android:text="@string/enter_otp"
         android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
@@ -26,7 +27,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your code was sent to you via phone number"
+        android:text="@string/code_sent_via_number"
         android:textColor="@color/black"
         android:textSize="14sp"
         android:layout_gravity="center"
@@ -42,75 +43,87 @@
 
         <EditText
             android:id="@+id/et_otp1"
-            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_width="48dp"
             android:layout_height="match_parent"
-            android:hint="0"
+            android:hint="@string/zero"
             android:inputType="number"
             android:maxLength="1"
+            android:autofillHints=""
             android:backgroundTint="@color/black"
-            android:textSize="50dp"/>
+            android:textSize="50sp"/>
 
         <EditText
             android:id="@+id/et_otp2"
-            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_width="48dp"
             android:layout_height="match_parent"
-            android:hint="0"
+            android:hint="@string/zero"
             android:inputType="number"
             android:maxLength="1"
-            android:layout_marginLeft="5dp"
+            android:autofillHints=""
+            android:layout_marginStart="5dp"
             android:backgroundTint="@color/black"
-            android:textSize="50dp"/>
+            android:textSize="50sp"/>
 
         <EditText
             android:id="@+id/et_otp3"
-            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_width="48dp"
             android:layout_height="match_parent"
-            android:hint="0"
+            android:hint="@string/zero"
             android:inputType="number"
             android:maxLength="1"
-            android:layout_marginLeft="5dp"
+            android:autofillHints=""
+            android:layout_marginStart="5dp"
             android:backgroundTint="@color/black"
-            android:textSize="50dp"/>
+            android:textSize="50sp"/>
 
         <EditText
             android:id="@+id/et_otp4"
-            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_width="48dp"
             android:layout_height="match_parent"
-            android:hint="0"
+            android:hint="@string/zero"
             android:inputType="number"
             android:maxLength="1"
-            android:layout_marginLeft="5dp"
+            android:autofillHints=""
+            android:layout_marginStart="5dp"
             android:backgroundTint="@color/black"
-            android:textSize="50dp"/>
+            android:textSize="50sp"/>
 
         <EditText
             android:id="@+id/et_otp5"
-            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_width="48dp"
             android:layout_height="match_parent"
-            android:hint="0"
+            android:hint="@string/zero"
             android:inputType="number"
             android:maxLength="1"
-            android:layout_marginLeft="5dp"
+            android:autofillHints=""
+            android:layout_marginStart="5dp"
             android:backgroundTint="@color/black"
-            android:textSize="50dp"/>
+            android:textSize="50sp"/>
 
         <EditText
             android:id="@+id/et_otp6"
-            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_width="48dp"
             android:layout_height="match_parent"
-            android:hint="0"
+            android:hint="@string/zero"
             android:inputType="number"
             android:maxLength="1"
-            android:layout_marginLeft="5dp"
+            android:autofillHints=""
+            android:layout_marginStart="5dp"
             android:backgroundTint="@color/black"
-            android:textSize="50dp"/>
+            android:textSize="50sp"/>
     </LinearLayout>
 
     <Button
         android:id="@+id/btn_submit"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Submit"
+        android:text="@string/submit_btn"
         android:textColor="@color/white"
         android:background="@drawable/for_btn"
         android:layout_gravity="center"
@@ -125,7 +138,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Didn't receive code?"
+            android:text="@string/did_not_receive"
             android:textColor="@color/black"
             android:textSize="14sp"
             android:layout_gravity="center"
@@ -135,7 +148,7 @@
             android:id="@+id/btn_resend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" Resend OTP"
+            android:text="@string/resend_otp"
             android:textColor="@color/black"
             android:textSize="14sp"
             android:layout_gravity="center"
