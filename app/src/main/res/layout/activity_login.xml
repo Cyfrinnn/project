@@ -50,22 +50,14 @@
     <!-- Email and Password Fields -->
     <EditText
         android:id="@+id/et_email_login"
-<<<<<<< HEAD
         android:layout_width="320dp"
-=======
-        android:layout_width="330dp"
->>>>>>> af6777818a53b668116524d313d4aafe9eff09c8
         android:layout_height="wrap_content"
         android:hint="@string/email_hint"
         android:autofillHints="emailAddress"
         android:inputType="textEmailAddress"
         android:textColorHint="@color/colorTextLight"
         android:textColor="#000000"
-<<<<<<< HEAD
         android:backgroundTint="@color/black"
-=======
-        android:background="@drawable/et_bg"
->>>>>>> af6777818a53b668116524d313d4aafe9eff09c8
         android:padding="16dp"
         android:layout_marginBottom="5dp"
         android:maxWidth="300dp"
@@ -73,22 +65,14 @@
 
     <EditText
         android:id="@+id/et_password_login"
-<<<<<<< HEAD
         android:layout_width="320dp"
-=======
-        android:layout_width="330dp"
->>>>>>> af6777818a53b668116524d313d4aafe9eff09c8
         android:layout_height="wrap_content"
         android:hint="@string/password_hint"
         android:inputType="textPassword"
         android:autofillHints="password"
         android:textColorHint="@color/colorTextLight"
         android:textColor="#000000"
-<<<<<<< HEAD
         android:backgroundTint="@color/black"
-=======
-        android:background="@drawable/et_bg"
->>>>>>> af6777818a53b668116524d313d4aafe9eff09c8
         android:padding="16dp"
         android:layout_marginTop="5dp"
         android:maxWidth="300dp"/>
@@ -102,31 +86,22 @@
         android:textColor="@color/black"
         android:textSize="15sp"
         android:layout_gravity="end"
-<<<<<<< HEAD
-        android:layout_marginRight="10dp"
-=======
-        android:layout_marginRight="25dp"
->>>>>>> af6777818a53b668116524d313d4aafe9eff09c8
-        android:layout_marginTop="5dp"/>
 
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"/>
     <Button
         android:id="@+id/btn_login"
-<<<<<<< HEAD
         android:layout_width="320dp"
-=======
-        android:layout_width="330dp"
->>>>>>> af6777818a53b668116524d313d4aafe9eff09c8
         android:layout_height="wrap_content"
         android:text="@string/login"
         android:background="@drawable/for_btn"
         android:textColor="@color/white"
         android:maxWidth="300dp"
         android:layout_gravity="center"
-<<<<<<< HEAD
         android:layout_marginTop="30dp"/>
-=======
-        android:layout_marginTop="20dp"/>
->>>>>>> af6777818a53b668116524d313d4aafe9eff09c8
+
+
+
 
     <!-- Sign Up Link -->
     <TextView

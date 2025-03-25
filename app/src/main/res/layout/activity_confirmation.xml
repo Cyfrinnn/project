@@ -25,5 +25,5 @@
         android:background="@drawable/for_btn"
         android:textColor="@color/white"
         android:layout_below="@id/tv_confirmation_message"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="10dp"/>
 </RelativeLayout>
