@@ -7,6 +7,7 @@
     android:id="@+id/forgot_pass_otp">
 
     <ImageButton
+        android:id="@+id/back_button"
         android:contentDescription="@string/back_btn"
         android:layout_width="40dp"
         android:layout_height="40dp"

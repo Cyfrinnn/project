@@ -46,17 +46,25 @@ class ForgotPassPhoneNumber : AppCompatActivity() {
         proceedButton.setOnClickListener {
             val phoneNumber = phoneNumberField.text.toString().trim()
 
+            // Check if the input is empty
             if (phoneNumber.isEmpty()) {
                 Toast.makeText(this, "Phone number must not be empty!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
+            // Check if the input is exactly 11 digits
             if (phoneNumber.length != 11) {
                 Toast.makeText(this, "Phone number must be exactly 11 digits!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // If valid, proceed to ForgotPassOTP
+            // Check if the input starts with "09"
+            if (!phoneNumber.startsWith("09")) {
+                Toast.makeText(this, "Invalid phone number!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // If valid, proceed to com.example.last.ForgotPassOTP
             val intent = Intent(this, ForgotPassOTP::class.java)
             startActivity(intent)
         }
