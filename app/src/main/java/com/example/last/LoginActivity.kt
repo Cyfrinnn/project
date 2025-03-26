@@ -26,10 +26,11 @@ class LoginActivity : AppCompatActivity() {
         // **Session Validation Logic**
         val sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE)
         val userId = sharedPreferences.getString("user_id", null)
+        val employerId = sharedPreferences.getString("employer_id", null)
         val loginTypeFromSession = sharedPreferences.getString("login_type", null)
 
         // Debug logging to verify retrieved session data
-        Log.d("SessionDebug", "Retrieved User ID: $userId, Login Type: $loginTypeFromSession")
+        Log.d("SessionDebug", "Retrieved User ID: $userId, Employer ID: $employerId, Login Type: $loginTypeFromSession")
 
         if (userId != null && loginTypeFromSession != null) {
             // Session exists, navigate based on login type
@@ -106,15 +107,16 @@ class LoginActivity : AppCompatActivity() {
                             Toast.makeText(this@LoginActivity, responseMap["message"] ?: "Login successful", Toast.LENGTH_SHORT).show()
 
                             // Debug logging for server response before saving
-                            Log.d("SessionDebug", "Server Response: User ID=${responseMap["user_id"]}, Login Type=${responseMap["role"]}")
+                            Log.d("SessionDebug", "Server Response: User ID=${responseMap["user_id"]}, Employer ID=${responseMap["employer_id"]}, Login Type=${responseMap["role"]}")
 
                             // Save session data
                             val editor = sharedPreferences.edit()
                             editor.putString("user_id", responseMap["user_id"])
+                            editor.putString("employer_id", responseMap["employer_id"]) // Save employer ID
                             editor.putString("login_type", responseMap["role"]) // Save login type
                             editor.apply()
 
-                            Log.d("SessionDebug", "Saved User ID: ${responseMap["user_id"]}, Login Type: ${responseMap["role"]}")
+                            Log.d("SessionDebug", "Saved User ID: ${responseMap["user_id"]}, Employer ID: ${responseMap["employer_id"]}, Login Type: ${responseMap["role"]}")
 
                             // Navigate based on login type
                             when (loginType) {

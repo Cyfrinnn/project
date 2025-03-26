@@ -1,5 +1,6 @@
 package com.example.last
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -48,16 +49,23 @@ class AddJobFragment : Fragment() {
             val location = jobLocation.text.toString().trim()
             val jobType = jobTypeSpinner.selectedItem.toString()
 
-            // Replace with the actual logged-in employer ID
-            val employerId = "26" // Replace with dynamic fetching later if needed
+            // Fetch employer_id from SharedPreferences
+            val sharedPreferences = requireActivity().getSharedPreferences("UserSession", Context.MODE_PRIVATE)
+            val employerId = sharedPreferences.getString("employer_id", null)
 
-            // Validate inputs
+            // Validate inputs and employer_id
+            if (employerId.isNullOrEmpty()) {
+                Toast.makeText(requireContext(), "Error: Employer ID not found!", Toast.LENGTH_SHORT).show()
+                Log.e("AddJobFragment", "Employer ID is null or empty. Ensure it is saved during login.")
+                return@setOnClickListener
+            }
             if (title.isEmpty() || company.isEmpty() || description.isEmpty() || location.isEmpty()) {
                 Toast.makeText(requireContext(), "Please fill in all the required fields!", Toast.LENGTH_SHORT).show()
-            } else {
-                // Send data to the server
-                sendJobPostToServer(employerId, title, company, description, salary, jobType, location)
+                return@setOnClickListener
             }
+
+            // Send data to the server
+            sendJobPostToServer(employerId, title, company, description, salary, jobType, location)
         }
 
         return view
@@ -94,7 +102,6 @@ class AddJobFragment : Fragment() {
 
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
-                // Handle network errors
                 requireActivity().runOnUiThread {
                     Toast.makeText(requireContext(), "Network error: ${e.message}", Toast.LENGTH_SHORT).show()
                     Log.e("AddJobFragment", "Network error: ${e.message}")

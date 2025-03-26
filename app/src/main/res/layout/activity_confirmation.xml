@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
     xmlns:tools="http://schemas.android.com/tools"
     android:padding="20dp"
     android:background="@drawable/gradient_bg"
+    android:orientation="vertical"
     tools:context=".ConfirmationActivity">
 
     <TextView
         android:id="@+id/tv_confirmation_message"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Account created successfully!"
+        android:text="@string/account_created_successfully"
         android:textSize="18sp"
         android:textColor="@color/black"
-        android:layout_centerHorizontal="true"/>
+        android:gravity="center"/>
 
     <Button
         android:id="@+id/btn_login"
-        android:layout_width="match_parent"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:text="Log in"
+        android:text="@string/login"
         android:background="@drawable/for_btn"
         android:textColor="@color/white"
-        android:layout_below="@id/tv_confirmation_message"
-        android:layout_marginTop="10dp"/>
-</RelativeLayout>
+        android:layout_marginTop="10dp"
+        android:gravity="center"/>
+</LinearLayout>

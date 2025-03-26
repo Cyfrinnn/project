@@ -29,6 +29,7 @@
     <string name="logo">logo_new</string>
     <string name="attach_file">Attach File</string>
     <string name="hint_company_name">Company Name</string>
+    <string name="account_created_successfully">Account created successfully!</string>
     <string-array name="job_type_array">
         <item>Full-Time</item>
         <item>Part-Time</item>
