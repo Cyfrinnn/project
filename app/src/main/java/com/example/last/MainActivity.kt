@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         val signUpButton: Button = findViewById(R.id.btn_signup)
         val loginTextView: TextView = findViewById(R.id.tv_login)
 
+
         applicantButton.setOnClickListener {
             // Handle applicant sign-up option
             Toast.makeText(this, "Applicant selected", Toast.LENGTH_SHORT).show()

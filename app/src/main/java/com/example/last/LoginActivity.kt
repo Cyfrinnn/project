@@ -55,16 +55,47 @@ class LoginActivity : AppCompatActivity() {
         val applicantButton: Button = findViewById(R.id.btn_applicant)
         val employerButton: Button = findViewById(R.id.btn_employer)
 
-        // Select login type
+        // Define flags to track which button is hovered
+        var isApplicantHovered = false
+        var isEmployerHovered = false
+
+// Applicant Button Logic
         applicantButton.setOnClickListener {
+            // Set Applicant Button to Hover and Reset Employer Button
+            if (!isApplicantHovered) {
+                applicantButton.setBackgroundResource(R.drawable.for_btn_hovered)
+                employerButton.setBackgroundResource(R.drawable.for_btn)
+                isApplicantHovered = true
+                isEmployerHovered = false
+            } else {
+                applicantButton.setBackgroundResource(R.drawable.for_btn)
+                isApplicantHovered = false
+            }
+
+            // Maintain Applicant Button functionality
             loginType = "applicant"
             Toast.makeText(this, "Login Type: Applicant", Toast.LENGTH_SHORT).show()
         }
 
+// Employer Button Logic
         employerButton.setOnClickListener {
+            // Set Employer Button to Hover and Reset Applicant Button
+            if (!isEmployerHovered) {
+                employerButton.setBackgroundResource(R.drawable.for_btn_hovered)
+                applicantButton.setBackgroundResource(R.drawable.for_btn)
+                isEmployerHovered = true
+                isApplicantHovered = false
+            } else {
+                employerButton.setBackgroundResource(R.drawable.for_btn)
+                isEmployerHovered = false
+            }
+
+            // Maintain Employer Button functionality
             loginType = "employer"
             Toast.makeText(this, "Login Type: Employer", Toast.LENGTH_SHORT).show()
         }
+
+
 
         // Handle login button click
         loginButton.setOnClickListener {

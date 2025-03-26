@@ -10,4 +10,7 @@
     <color name="white">#FFFFFF</color>
     <color name="blue">#3d50b9</color>
     <color name="red">#B10000</color>
+    <color name="default_button_color">#3d50b9</color> <!-- Default -->
+    <color name="hover_button_color">#3700B3</color>  <!-- Hover -->
+
 </resources>

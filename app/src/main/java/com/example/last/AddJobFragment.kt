@@ -13,8 +13,13 @@ import org.json.JSONObject
 import java.io.IOException
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody.Companion.toRequestBody
+import androidx.fragment.app.activityViewModels
+import com.example.last.JobPostViewModel // Adjust the path if necessary
+
 
 class AddJobFragment : Fragment() {
+    private val viewModel: JobPostViewModel by activityViewModels()
+
     private lateinit var jobTitle: EditText
     private lateinit var companyName: EditText
     private lateinit var jobDescription: EditText
@@ -22,6 +27,8 @@ class AddJobFragment : Fragment() {
     private lateinit var jobTypeSpinner: Spinner
     private lateinit var jobLocation: EditText
     private lateinit var submitButton: Button
+
+
 
     // OkHttp Client for network calls
     private val client = OkHttpClient()
@@ -41,6 +48,7 @@ class AddJobFragment : Fragment() {
         jobLocation = view.findViewById(R.id.et_job_location)
         submitButton = view.findViewById(R.id.btn_submit_job)
 
+        // Handle Submit Button Click
         submitButton.setOnClickListener {
             val title = jobTitle.text.toString().trim()
             val company = companyName.text.toString().trim()
@@ -80,7 +88,7 @@ class AddJobFragment : Fragment() {
         jobType: String,
         location: String
     ) {
-        val url = "http://10.0.2.2/api/add_job_post.php" // Your PHP script URL
+        val url = "http://10.0.2.2/api/add_job_post.php" // Update with your actual API URL
         val json = JSONObject().apply {
             put("employer_id", employerId)
             put("job_title", title)
@@ -98,6 +106,7 @@ class AddJobFragment : Fragment() {
         val request = Request.Builder()
             .url(url)
             .post(requestBody)
+            .addHeader("Content-Type", "application/json")
             .build()
 
         client.newCall(request).enqueue(object : Callback {

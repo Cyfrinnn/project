@@ -40,7 +40,24 @@ class SignUpActivity : AppCompatActivity() {
         val employerPasswordEditText: EditText = findViewById(R.id.et_employer_password)
         val employerConfirmPasswordEditText: EditText = findViewById(R.id.et_employer_confirm_password)
 
+        var isApplicantHovered = false
+        var isEmployerHovered = false
+
+
         applicantButton.setOnClickListener {
+            if (!isApplicantHovered) {
+                // Hover Applicant Button and Reset Employer Button
+                applicantButton.setBackgroundResource(R.drawable.for_btn_hovered)
+                employerButton.setBackgroundResource(R.drawable.for_btn)
+                isApplicantHovered = true
+                isEmployerHovered = false
+            } else {
+                // Reset Applicant Button to Default
+                applicantButton.setBackgroundResource(R.drawable.for_btn)
+                isApplicantHovered = false
+            }
+
+            // Maintain the functionality
             isApplicantSignUp = true
             toggleSignUpFields(
                 fullNameEditText, companyNameEditText,
@@ -52,6 +69,19 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         employerButton.setOnClickListener {
+            if (!isEmployerHovered) {
+                // Hover Employer Button and Reset Applicant Button
+                employerButton.setBackgroundResource(R.drawable.for_btn_hovered)
+                applicantButton.setBackgroundResource(R.drawable.for_btn)
+                isEmployerHovered = true
+                isApplicantHovered = false
+            } else {
+                // Reset Employer Button to Default
+                employerButton.setBackgroundResource(R.drawable.for_btn)
+                isEmployerHovered = false
+            }
+
+            // Maintain the functionality
             isApplicantSignUp = false
             toggleSignUpFields(
                 fullNameEditText, companyNameEditText,
@@ -61,6 +91,7 @@ class SignUpActivity : AppCompatActivity() {
             )
             Toast.makeText(this, "Employer selected", Toast.LENGTH_SHORT).show()
         }
+
 
         signUpButton.setOnClickListener {
             val nameOrCompany = if (isApplicantSignUp) fullNameEditText.text.toString().trim() else companyNameEditText.text.toString().trim()

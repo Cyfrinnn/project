@@ -41,6 +41,8 @@ android {
 
 dependencies {
 
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
+    implementation ("androidx.fragment:fragment-ktx:1.5.7")
     implementation ("com.squareup.okhttp3:okhttp:4.9.1")
     implementation ("com.google.code.gson:gson:2.8.8")
     implementation ("androidx.compose.ui:ui:1.0.1")
