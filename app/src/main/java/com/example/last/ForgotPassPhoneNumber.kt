@@ -7,6 +7,7 @@ import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -27,17 +28,11 @@ class ForgotPassPhoneNumber : AppCompatActivity() {
         val proceedButton = findViewById<Button>(R.id.btn_proceed)
         val backButton = findViewById<ImageButton>(R.id.back_button)
 
-        // Initially disable the "Continue" button
-        proceedButton.isEnabled = false
-
         // TextWatcher to monitor phone number input
         phoneNumberField.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                // Enable the button if the input is exactly 11 digits
-                proceedButton.isEnabled = s?.length == 11
-            }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
 
             override fun afterTextChanged(s: Editable?) {}
         })
@@ -49,6 +44,19 @@ class ForgotPassPhoneNumber : AppCompatActivity() {
 
         // Proceed button functionality
         proceedButton.setOnClickListener {
+            val phoneNumber = phoneNumberField.text.toString().trim()
+
+            if (phoneNumber.isEmpty()) {
+                Toast.makeText(this, "Phone number must not be empty!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (phoneNumber.length != 11) {
+                Toast.makeText(this, "Phone number must be exactly 11 digits!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // If valid, proceed to ForgotPassOTP
             val intent = Intent(this, ForgotPassOTP::class.java)
             startActivity(intent)
         }
