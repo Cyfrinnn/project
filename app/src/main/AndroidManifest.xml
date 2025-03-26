@@ -16,10 +16,12 @@
             android:exported="false" />
         <activity
             android:name=".ForgotPassOTP"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
             android:name=".ForgotPassPhoneNumber"
-            android:exported="false" /> <!-- EmployerMainActivity with NoActionBar theme -->
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/><!-- EmployerMainActivity with NoActionBar theme -->
         <activity
             android:name=".EmployerMainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" /> <!-- SignUpActivity with NoActionBar -->

@@ -3,9 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_bg"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/forgot_pass_ph_number">
 
     <ImageButton
+        android:id="@+id/back_button"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_margin="20dp"
@@ -42,7 +44,7 @@
         android:layout_gravity="center"
         android:autofillHints="phoneNumber"
         android:backgroundTint="@color/black"
-        android:hint="Enter your phone number"
+        android:hint="@string/enter_your_phone_number"
         android:inputType="number"
         android:maxWidth="300dp"
         android:padding="20dp"
@@ -57,6 +59,6 @@
         android:layout_gravity="center"
         android:background="@drawable/for_btn"
         android:textColor="@color/white"
-        android:text="Continue"
+        android:text="@string/cntinue"
         android:layout_marginTop="20dp"/>
 </LinearLayout>

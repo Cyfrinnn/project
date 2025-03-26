@@ -22,7 +22,7 @@
     <string name="enter_otp">Enter One Time Password</string>
     <string name="code_sent_via_number">Your code was sent to you via phone number</string>
     <string name="did_not_receive">Didn\'t receive code?</string>
-    <string name="resend_otp">Resend OTP</string>
+    <string name="resend_otp"> Resend OTP</string>
     <string name="back_btn">back_btn</string>
     <string name="zero">0</string>
     <string name="submit_btn">Submit</string>
@@ -30,6 +30,8 @@
     <string name="attach_file">Attach File</string>
     <string name="hint_company_name">Company Name</string>
     <string name="account_created_successfully">Account created successfully!</string>
+    <string name="enter_your_phone_number">Enter phone number (e.g. 0912)</string>
+    <string name="cntinue">Continue</string>
     <string-array name="job_type_array">
         <item>Full-Time</item>
         <item>Part-Time</item>

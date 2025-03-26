@@ -134,7 +134,9 @@ class LoginActivity : AppCompatActivity() {
 
         // Forgot password functionality (can be expanded later)
         forgotPasswordTextView.setOnClickListener {
-            Toast.makeText(this, "Forgot Password clicked", Toast.LENGTH_SHORT).show()
+            // Navigate to com.example.last.ForgotPassPhoneNumber activity
+            val intent = Intent(this, ForgotPassPhoneNumber::class.java)
+            startActivity(intent)
         }
 
         // Navigate to sign-up activity

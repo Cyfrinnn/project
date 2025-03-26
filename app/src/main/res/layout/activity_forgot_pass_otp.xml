@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_bg"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/forgot_pass_otp">
 
     <ImageButton
         android:contentDescription="@string/back_btn"
@@ -153,6 +154,7 @@
             android:textSize="14sp"
             android:layout_gravity="center"
             android:textStyle="bold"
+            android:layout_marginStart="5dp"
             android:clickable="true" />
     </LinearLayout>
 
