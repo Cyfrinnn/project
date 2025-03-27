@@ -3,54 +3,122 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="10dp"
+    android:layout_margin="10dp"
+    android:background="@drawable/job_post_bg">
 
-    <!-- Job Title -->
-    <TextView
-        android:id="@+id/tv_job_title"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:text="Job Title"
-        android:textSize="16sp" />
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
 
-    <!-- Company Name -->
-    <TextView
-        android:id="@+id/tv_company_name"
+        <ImageView
+            android:contentDescription="@string/profile"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/for_profile_iv"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_company_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/company_name"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/tv_job_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/job_location"
+                    android:textSize="14sp"
+                    android:layout_marginStart="5dp"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <ImageButton
+                android:contentDescription="@string/delete_btn"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/delete"
+                android:background=""
+                android:layout_marginStart="120dp"
+                android:scaleType="fitCenter"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Company Name"
-        android:textSize="14sp" />
+        android:orientation="vertical"
+        android:padding="10dp">
 
-    <!-- Job Description -->
-    <TextView
-        android:id="@+id/tv_job_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Job Description"
-        android:textSize="14sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginStart="5dp">
 
-    <!-- Salary Range -->
-    <TextView
-        android:id="@+id/tv_salary_range"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Salary Range"
-        android:textSize="14sp" />
+            <TextView
+                android:id="@+id/tv_job_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/job_title"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/black"/>
 
-    <!-- Job Type -->
-    <TextView
-        android:id="@+id/tv_job_type"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Job Type"
-        android:textSize="14sp" />
+            <TextView
+                android:id="@+id/tv_job_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/job_type"
+                android:textSize="14sp"
+                android:textColor="@color/black"/>
 
-    <!-- Job Location -->
-    <TextView
-        android:id="@+id/tv_job_location"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Job Location"
-        android:textSize="14sp" />
+            <TextView
+                android:id="@+id/tv_salary_range"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/salary_range"
+                android:textSize="14sp"
+                android:textColor="@color/black"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:contentDescription="@string/post"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/for_post_iv"/>
+
+                <TextView
+                    android:id="@+id/tv_job_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/job_description"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="5dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>
