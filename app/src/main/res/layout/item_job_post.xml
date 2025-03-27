@@ -1,0 +1,56 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <!-- Job Title -->
+    <TextView
+        android:id="@+id/tv_job_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="Job Title"
+        android:textSize="16sp" />
+
+    <!-- Company Name -->
+    <TextView
+        android:id="@+id/tv_company_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Company Name"
+        android:textSize="14sp" />
+
+    <!-- Job Description -->
+    <TextView
+        android:id="@+id/tv_job_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Job Description"
+        android:textSize="14sp" />
+
+    <!-- Salary Range -->
+    <TextView
+        android:id="@+id/tv_salary_range"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salary Range"
+        android:textSize="14sp" />
+
+    <!-- Job Type -->
+    <TextView
+        android:id="@+id/tv_job_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Job Type"
+        android:textSize="14sp" />
+
+    <!-- Job Location -->
+    <TextView
+        android:id="@+id/tv_job_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Job Location"
+        android:textSize="14sp" />
+</LinearLayout>

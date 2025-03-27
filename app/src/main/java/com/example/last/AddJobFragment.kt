@@ -14,7 +14,7 @@ import java.io.IOException
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody.Companion.toRequestBody
 import androidx.fragment.app.activityViewModels
-import com.example.last.JobPostViewModel // Adjust the path if necessary
+import com.example.last.JobPostViewModel
 
 
 class AddJobFragment : Fragment() {
@@ -27,8 +27,6 @@ class AddJobFragment : Fragment() {
     private lateinit var jobTypeSpinner: Spinner
     private lateinit var jobLocation: EditText
     private lateinit var submitButton: Button
-
-
 
     // OkHttp Client for network calls
     private val client = OkHttpClient()
@@ -72,8 +70,22 @@ class AddJobFragment : Fragment() {
                 return@setOnClickListener
             }
 
+            val jobPost = JobPost(
+                employerId = employerId,
+                jobTitle = title,
+                companyName = company,
+                jobDescription = description,
+                salaryRange = salary,
+                jobType = jobType,
+                jobLocation = location
+            )
+
+            // Debugging: Log the JobPost being added
+            Log.d("AddJobFragment", "JobPost being added: $jobPost") // Added this line
+
             // Send data to the server
             sendJobPostToServer(employerId, title, company, description, salary, jobType, location)
+            viewModel.addJobPost(jobPost)
         }
 
         return view

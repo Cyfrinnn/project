@@ -1,19 +1,19 @@
 package com.example.last
+
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import android.util.Log
 
 class JobPostViewModel : ViewModel() {
-    // MutableLiveData to hold the list of job posts
-    val jobPosts = MutableLiveData<MutableList<JobPost>>(mutableListOf())
-}
+    private val _jobPosts = MutableLiveData<List<JobPost>>(emptyList())
+    val jobPosts: LiveData<List<JobPost>> = _jobPosts
 
-// Data model for JobPost
-data class JobPost(
-    val employerId: String,
-    val jobTitle: String,
-    val companyName: String,
-    val jobDescription: String,
-    val salaryRange: String,
-    val jobType: String,
-    val jobLocation: String
-)
+    fun addJobPost(jobPost: JobPost) {
+        val updatedList = _jobPosts.value?.toMutableList() ?: mutableListOf()
+        updatedList.add(jobPost)
+        _jobPosts.value = updatedList
+        Log.d("JobPostViewModel", "New JobPost added: $jobPost")
+    }
+
+}
