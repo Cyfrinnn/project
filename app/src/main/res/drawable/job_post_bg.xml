@@ -12,10 +12,7 @@
     <!-- Gradient background layer -->
     <item>
         <shape android:shape="rectangle">
-            <gradient
-                android:startColor="@color/white"
-                android:endColor="#ace5ee"
-                android:angle="-190" />
+            <solid android:color="@color/white" />
             <corners android:radius="5dp" />
         </shape>
     </item>

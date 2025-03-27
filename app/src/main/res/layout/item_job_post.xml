@@ -1,5 +1,6 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -55,7 +56,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:src="@drawable/delete"
-                android:background=""
+                android:background="@color/white"
                 android:layout_marginStart="120dp"
                 android:scaleType="fitCenter"/>
         </LinearLayout>
@@ -67,58 +68,53 @@
         android:orientation="vertical"
         android:padding="10dp">
 
+        <TextView
+            android:id="@+id/tv_job_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/job_title"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/tv_job_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/job_type"
+            android:textSize="14sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/tv_salary_range"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/salary_range"
+            android:textSize="14sp"
+            android:textColor="@color/black"/>
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginStart="5dp">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:contentDescription="@string/post"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/for_post_iv"/>
 
             <TextView
-                android:id="@+id/tv_job_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/job_title"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:textColor="@color/black"/>
-
-            <TextView
-                android:id="@+id/tv_job_type"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/job_type"
-                android:textSize="14sp"
-                android:textColor="@color/black"/>
-
-            <TextView
-                android:id="@+id/tv_salary_range"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/salary_range"
-                android:textSize="14sp"
-                android:textColor="@color/black"/>
-
-            <LinearLayout
+                android:id="@+id/tv_job_description"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="10dp">
+                android:layout_height="match_parent"
+                android:text="@string/job_description"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:layout_marginStart="5dp"/>
 
-                <ImageView
-                    android:contentDescription="@string/post"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:src="@drawable/for_post_iv"/>
-
-                <TextView
-                    android:id="@+id/tv_job_description"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="@string/job_description"
-                    android:textSize="14sp"
-                    android:textColor="@color/black"
-                    android:layout_marginStart="5dp"/>
-            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
