@@ -41,6 +41,8 @@
     <string name="job_title">Job Title</string>
     <string name="job_location">Job Location</string>
     <string name="company_name">Company Name</string>
+    <string name="dash">---</string>
+    <string name="upload">UPLOAD</string>
     <string-array name="job_type_array">
         <item>Full-Time</item>
         <item>Part-Time</item>

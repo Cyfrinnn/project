@@ -85,14 +85,6 @@
             android:textSize="14sp"
             android:textColor="@color/black"/>
 
-        <TextView
-            android:id="@+id/tv_salary_range"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/salary_range"
-            android:textSize="14sp"
-            android:textColor="@color/black"/>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
