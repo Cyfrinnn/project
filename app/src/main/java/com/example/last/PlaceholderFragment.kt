@@ -74,6 +74,16 @@ class PlaceholderFragment : Fragment() {
             override fun onResponse(call: Call, response: Response) {
                 response.body?.let { responseBody ->
                     val responseString = responseBody.string()
+
+                    // Safeguard: Check for valid JSON response
+                    if (!responseString.trim().startsWith("[") || !responseString.trim().endsWith("]")) {
+                        Log.e("PlaceholderFragment", "Invalid server response: $responseString")
+                        requireActivity().runOnUiThread {
+                            Toast.makeText(requireContext(), "Invalid data received from server", Toast.LENGTH_SHORT).show()
+                        }
+                        return
+                    }
+
                     val fetchedJobList = ArrayList<JobPost>()
 
                     try {
