@@ -11,13 +11,16 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import okhttp3.*
 import org.json.JSONArray
 import org.json.JSONObject
+import java.io.IOException
 
 class PlaceholderFragment : Fragment() {
     private val viewModel: JobPostViewModel by activityViewModels() // Shared ViewModel
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: JobPostAdapter // Custom adapter for RecyclerView
+    private val client = OkHttpClient()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,9 +36,12 @@ class PlaceholderFragment : Fragment() {
 
         // Load cached jobs when app starts
         loadJobsFromPreferences()?.let { cachedJobs ->
-            adapter.submitList(cachedJobs)
+            adapter.submitList(cachedJobs.toMutableList()) // Use mutable list for appending
             Log.d("PlaceholderFragment", "Loaded cached jobs: ${cachedJobs.size}")
         }
+
+        // Fetch jobs from the server and merge with cached data
+        fetchJobs()
 
         // Observe changes in the job post data from ViewModel
         viewModel.jobPosts.observe(viewLifecycleOwner) { jobList ->
@@ -43,13 +49,73 @@ class PlaceholderFragment : Fragment() {
                 Toast.makeText(requireContext(), "No jobs to display.", Toast.LENGTH_SHORT).show()
                 Log.d("PlaceholderFragment", "Job list is empty.")
             } else {
-                adapter.submitList(jobList) // Update RecyclerView with new data
+                adapter.submitList(jobList.toMutableList()) // Update RecyclerView without overwriting
                 saveJobsToPreferences(jobList) // Cache the job list locally
                 Log.d("PlaceholderFragment", "Job list updated with ${jobList.size} item(s).")
             }
         }
 
         return view
+    }
+
+    // Function to fetch jobs and merge them with cached data
+    private fun fetchJobs() {
+        val request = Request.Builder()
+            .url("http://10.0.2.2/api/fetch_jobs.php") // Replace with your actual URL
+            .build()
+
+        client.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                requireActivity().runOnUiThread {
+                    Toast.makeText(requireContext(), "Failed to fetch jobs: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                response.body?.let { responseBody ->
+                    val responseString = responseBody.string()
+                    val fetchedJobList = ArrayList<JobPost>()
+
+                    try {
+                        val jobs = JSONArray(responseString)
+                        for (i in 0 until jobs.length()) {
+                            val job = jobs.getJSONObject(i)
+                            fetchedJobList.add(
+                                JobPost(
+                                    employerId = job.getString("employer_id"),
+                                    jobTitle = job.getString("job_title"),
+                                    companyName = job.getString("company_name"),
+                                    jobLocation = job.getString("job_location"),
+                                    jobType = job.getString("job_type"),
+                                    salaryRange = job.getString("salary_range"),
+                                    jobDescription = job.getString("job_description")
+                                )
+                            )
+                        }
+                    } catch (e: Exception) {
+                        Log.e("PlaceholderFragment", "Error parsing server response: ${e.message}")
+                    }
+
+                    // Merge fetched jobs with cached jobs
+                    val cachedJobs = loadJobsFromPreferences() ?: ArrayList()
+                    val mergedJobList = ArrayList<JobPost>()
+                    mergedJobList.addAll(cachedJobs)
+
+                    for (fetchedJob in fetchedJobList) {
+                        if (!mergedJobList.any { it.jobTitle == fetchedJob.jobTitle }) { // Avoid duplicates
+                            mergedJobList.add(fetchedJob)
+                        }
+                    }
+
+                    // Update UI and cache
+                    requireActivity().runOnUiThread {
+                        adapter.submitList(mergedJobList.toMutableList()) // Use mutable list for appending
+                    }
+                    saveJobsToPreferences(mergedJobList) // Save merged list locally
+                    Log.d("PlaceholderFragment", "Jobs updated and cached.")
+                }
+            }
+        })
     }
 
     // Function to save jobs to Shared Preferences
@@ -87,7 +153,6 @@ class PlaceholderFragment : Fragment() {
                 val jobObject = jobArray.getJSONObject(i)
                 jobList.add(
                     JobPost(
-
                         employerId = jobObject.getString("employerId"),
                         jobTitle = jobObject.getString("jobTitle"),
                         companyName = jobObject.getString("companyName"),
