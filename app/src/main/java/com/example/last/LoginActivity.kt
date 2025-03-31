@@ -15,6 +15,8 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.IOException
 import java.lang.reflect.Type
+import android.content.SharedPreferences
+
 
 class LoginActivity : AppCompatActivity() {
 
@@ -25,155 +27,129 @@ class LoginActivity : AppCompatActivity() {
 
         // **Session Validation Logic**
         val sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.clear() // Clear any existing session
+        editor.apply()
         val userId = sharedPreferences.getString("user_id", null)
-        val employerId = sharedPreferences.getString("employer_id", null)
         val loginTypeFromSession = sharedPreferences.getString("login_type", null)
 
         // Debug logging to verify retrieved session data
-        Log.d("SessionDebug", "Retrieved User ID: $userId, Employer ID: $employerId, Login Type: $loginTypeFromSession")
+        Log.d("SessionDebug", "User ID: $userId, Login Type: $loginTypeFromSession")
 
-        if (userId != null && loginTypeFromSession != null) {
-            // Session exists, navigate based on login type
-            when (loginTypeFromSession) {
-                "employer" -> {
-                    startActivity(Intent(this, EmployerMainActivity::class.java))
-                }
-                "applicant" -> {
-                    startActivity(Intent(this, ApplicantMainActivity::class.java))
-                }
-            }
+        if (!userId.isNullOrEmpty() && !loginTypeFromSession.isNullOrEmpty()) {
+            Log.d("SessionDebug", "Valid session detected. Redirecting user...")
+            navigateBasedOnLoginType(loginTypeFromSession)
             finish() // Prevent returning to login screen
+        } else {
+            Log.d("SessionDebug", "No valid session. Staying on login screen.")
         }
+
 
         setContentView(R.layout.activity_login) // Show login screen if no session exists
 
+        // Initialize UI elements
         val emailEditText: EditText = findViewById(R.id.et_email_login)
         val passwordEditText: EditText = findViewById(R.id.et_password_login)
         val loginButton: Button = findViewById(R.id.btn_login)
-        val forgotPasswordTextView: TextView = findViewById(R.id.tv_forgot_password)
-        val signUpTextView: TextView = findViewById(R.id.tv_signup)
         val applicantButton: Button = findViewById(R.id.btn_applicant)
         val employerButton: Button = findViewById(R.id.btn_employer)
+        val forgotPasswordTextView: TextView = findViewById(R.id.tv_forgot_password)
+        val signUpTextView: TextView = findViewById(R.id.tv_signup)
 
-        // Define flags to track which button is hovered
-        var isApplicantHovered = false
-        var isEmployerHovered = false
-
-// Applicant Button Logic
-        applicantButton.setOnClickListener {
-            // Set Applicant Button to Hover and Reset Employer Button
-            if (!isApplicantHovered) {
-                applicantButton.setBackgroundResource(R.drawable.for_btn_hovered)
-                employerButton.setBackgroundResource(R.drawable.for_btn)
-                isApplicantHovered = true
-                isEmployerHovered = false
-            } else {
-                applicantButton.setBackgroundResource(R.drawable.for_btn)
-                isApplicantHovered = false
-            }
-
-            // Maintain Applicant Button functionality
-            loginType = "applicant"
-            Toast.makeText(this, "Login Type: Applicant", Toast.LENGTH_SHORT).show()
-        }
-
-// Employer Button Logic
-        employerButton.setOnClickListener {
-            // Set Employer Button to Hover and Reset Applicant Button
-            if (!isEmployerHovered) {
-                employerButton.setBackgroundResource(R.drawable.for_btn_hovered)
-                applicantButton.setBackgroundResource(R.drawable.for_btn)
-                isEmployerHovered = true
-                isApplicantHovered = false
-            } else {
-                employerButton.setBackgroundResource(R.drawable.for_btn)
-                isEmployerHovered = false
-            }
-
-            // Maintain Employer Button functionality
-            loginType = "employer"
-            Toast.makeText(this, "Login Type: Employer", Toast.LENGTH_SHORT).show()
-        }
-
-
+        // Set up login type buttons
+        setupButtonListeners(applicantButton, employerButton)
 
         // Handle login button click
         loginButton.setOnClickListener {
-            val email = emailEditText.text.toString().trim()
-            val password = passwordEditText.text.toString().trim()
-
-            if (loginType == null) {
-                Toast.makeText(this, "Please select Applicant or Employer", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
-            if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Email and Password are required", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
-            // Prepare login parameters
-            val params = mapOf("email" to email, "password" to password, "loginType" to loginType!!)
-            Log.d("LoginDebug", "Request Params: $params")
-
-            // Send login request
-            NetworkUtils.post("http://10.0.2.2/api/login.php", params, object : Callback {
-                override fun onFailure(call: Call, e: IOException) {
-                    runOnUiThread {
-                        Toast.makeText(this@LoginActivity, "Network error: ${e.message}", Toast.LENGTH_SHORT).show()
-                        Log.e("LoginDebug", "Network error: ${e.message}")
-                    }
-                }
-
-                override fun onResponse(call: Call, response: Response) {
-                    val responseBody = response.body?.string()
-                    Log.d("LoginDebug", "Response Body: $responseBody")
-
-                    // Parse JSON response
-                    val responseType: Type = object : TypeToken<Map<String, String>>() {}.type
-                    val responseMap: Map<String, String> = Gson().fromJson(responseBody, responseType)
-
-                    runOnUiThread {
-                        if (response.isSuccessful && responseMap["status"] == "success") {
-                            Toast.makeText(this@LoginActivity, responseMap["message"] ?: "Login successful", Toast.LENGTH_SHORT).show()
-
-                            // Debug logging for server response before saving
-                            Log.d("SessionDebug", "Server Response: User ID=${responseMap["user_id"]}, Employer ID=${responseMap["employer_id"]}, Login Type=${responseMap["role"]}")
-
-                            // Save session data
-                            val editor = sharedPreferences.edit()
-                            editor.putString("user_id", responseMap["user_id"])
-                            editor.putString("employer_id", responseMap["employer_id"]) // Save employer ID
-                            editor.putString("login_type", responseMap["role"]) // Save login type
-                            editor.apply()
-
-                            Log.d("SessionDebug", "Saved User ID: ${responseMap["user_id"]}, Employer ID: ${responseMap["employer_id"]}, Login Type: ${responseMap["role"]}")
-
-                            // Navigate based on login type
-                            when (loginType) {
-                                "employer" -> startActivity(Intent(this@LoginActivity, EmployerMainActivity::class.java))
-                                "applicant" -> startActivity(Intent(this@LoginActivity, ApplicantMainActivity::class.java))
-                            }
-                            finish() // Prevent returning to login
-                        } else {
-                            Toast.makeText(this@LoginActivity, responseMap["error"] ?: "Login failed", Toast.LENGTH_SHORT).show()
-                        }
-                    }
-                }
-            })
+            handleLogin(emailEditText, passwordEditText, sharedPreferences)
         }
 
-        // Forgot password functionality (can be expanded later)
+        // Forgot password functionality
         forgotPasswordTextView.setOnClickListener {
-            // Navigate to com.example.last.ForgotPassPhoneNumber activity
-            val intent = Intent(this, ForgotPassPhoneNumber::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, ForgotPassPhoneNumber::class.java))
         }
 
         // Navigate to sign-up activity
         signUpTextView.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, SignUpActivity::class.java))
+        }
+    }
+
+    private fun setupButtonListeners(applicantButton: Button, employerButton: Button) {
+        applicantButton.setOnClickListener {
+            loginType = "applicant"
+            applicantButton.setBackgroundResource(R.drawable.for_btn_hovered)
+            employerButton.setBackgroundResource(R.drawable.for_btn)
+            Toast.makeText(this, "Login Type: Applicant", Toast.LENGTH_SHORT).show()
+        }
+
+        employerButton.setOnClickListener {
+            loginType = "employer"
+            employerButton.setBackgroundResource(R.drawable.for_btn_hovered)
+            applicantButton.setBackgroundResource(R.drawable.for_btn)
+            Toast.makeText(this, "Login Type: Employer", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun handleLogin(emailEditText: EditText, passwordEditText: EditText, sharedPreferences: SharedPreferences) {
+        val email = emailEditText.text.toString().trim()
+        val password = passwordEditText.text.toString().trim()
+
+        if (loginType == null) {
+            Toast.makeText(this, "Please select Applicant or Employer", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(this, "Email and Password are required", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val params = mapOf("email" to email, "password" to password, "loginType" to loginType!!)
+        Log.d("LoginDebug", "Request Params: $params")
+
+        NetworkUtils.post("http://10.0.2.2/api/login.php", params, object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                runOnUiThread {
+                    Toast.makeText(this@LoginActivity, "Network error: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                val responseBody = response.body?.string()
+                Log.d("LoginDebug", "Response Body: $responseBody")
+
+                val responseType: Type = object : TypeToken<Map<String, String>>() {}.type
+                val responseMap: Map<String, String> = Gson().fromJson(responseBody, responseType)
+
+                runOnUiThread {
+                    if (response.isSuccessful && responseMap["status"] == "success") {
+                        handleSuccessfulLogin(responseMap, sharedPreferences)
+                    } else {
+                        Toast.makeText(this@LoginActivity, responseMap["error"] ?: "Login failed", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        })
+    }
+
+    private fun handleSuccessfulLogin(responseMap: Map<String, String>, sharedPreferences: SharedPreferences) {
+        Toast.makeText(this, responseMap["message"] ?: "Login successful", Toast.LENGTH_SHORT).show()
+
+        val editor = sharedPreferences.edit()
+        editor.putString("user_id", responseMap["user_id"])
+        editor.putString("employer_id", responseMap["employer_id"])
+        editor.putString("login_type", loginType!!)
+        editor.apply()
+
+        navigateBasedOnLoginType(loginType!!)
+        finish()
+    }
+
+    private fun navigateBasedOnLoginType(loginType: String) {
+        when (loginType) {
+            "employer" -> startActivity(Intent(this, EmployerMainActivity::class.java))
+            "applicant" -> startActivity(Intent(this, ApplicantMainActivity::class.java))
         }
     }
 }

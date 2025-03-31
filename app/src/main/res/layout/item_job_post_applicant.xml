@@ -1,0 +1,57 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="@drawable/job_post_bg"
+    android:layout_marginBottom="8dp">
+
+    <TextView
+        android:id="@+id/tv_job_title_applicant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Job Title"
+        android:textStyle="bold"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_company_name_applicant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Company Name"
+        android:layout_marginTop="4dp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/tv_job_description_applicant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Job Description"
+        android:layout_marginTop="4dp" />
+
+    <TextView
+        android:id="@+id/tv_salary_range_applicant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Salary Range"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/tv_job_type_applicant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Job Type"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/blue" />
+
+    <TextView
+        android:id="@+id/tv_job_location_applicant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Job Location"
+        android:layout_marginTop="4dp"
+        android:textStyle="italic"
+        android:textColor="@color/black" />
+</LinearLayout>

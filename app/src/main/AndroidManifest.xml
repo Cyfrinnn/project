@@ -46,6 +46,11 @@
             android:name=".ConfirmationActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <activity
+            android:name=".ApplicantMainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
     </application>
+
 
 </manifest>
