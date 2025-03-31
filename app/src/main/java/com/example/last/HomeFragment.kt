@@ -39,7 +39,7 @@ class HomeFragment : Fragment() {
     private fun fetchJobs() {
         val client = OkHttpClient()
         val request = Request.Builder()
-            .url("http://yourserver/api/get_jobs.php") // Replace with your backend API endpoint
+            .url("http://10.0.2.2/api/fetch_jobs.php") // Replace with your backend API endpoint
             .build()
 
         client.newCall(request).enqueue(object : Callback {

@@ -2,23 +2,113 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/gradient_bg">
 
-    <TextView
-        android:id="@+id/tv_profile_applicant"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Applicant Profile"
-        android:textSize="20sp" />
+        android:gravity="center"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/circularImageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/for_profile_iv"/>
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:background="@drawable/for_btn"
+                android:textColor="@color/white"
+                android:text="@string/edit_prof"
+                android:layout_marginTop="5dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Applicant Name"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_gravity="top"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="applicant@gmail.com"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_gravity="top"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bio: "
+            android:lines="6"
+            android:textSize="14sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Address: "
+            android:layout_marginTop="20dp"
+            android:lines="4"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Resume: "
+            android:layout_marginTop="20dp"
+            android:lines="4"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_change_pass"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:text="Change Password"
+        android:layout_gravity="center"
+        android:padding="16dp"
+        android:background="@drawable/for_btn"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="60dp"/>
+
     <Button
         android:id="@+id/btn_logout"
-        android:layout_width="wrap_content"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:text="Log Out"
-        android:background="@color/red"
-        android:textColor="@color/white"
+        android:text="@string/logout"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp" />
-
+        android:padding="16dp"
+        android:background="@drawable/for_logout_btn"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="10dp"/>
 </LinearLayout>
