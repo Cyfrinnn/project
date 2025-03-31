@@ -39,40 +39,62 @@ class HomeFragment : Fragment() {
     private fun fetchJobs() {
         val client = OkHttpClient()
         val request = Request.Builder()
-            .url("http://10.0.2.2/api/fetch_jobs.php") // Replace with your backend API endpoint
+            .url("http://10.0.2.2/api/fetch_jobs.php") // Ensure this matches your API endpoint
             .build()
 
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
-                Log.e("FetchJobsError", e.message.toString())
+                // Log the failure
+                Log.e("FetchJobsError", "Network request failed: ${e.message}")
                 activity?.runOnUiThread {
-                    Toast.makeText(requireContext(), "Failed to load jobs", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Failed to load jobs. Please try again.", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onResponse(call: Call, response: Response) {
-                val responseBody = response.body?.string()
-                if (response.isSuccessful && !responseBody.isNullOrEmpty()) {
-                    val jsonArray = JSONArray(responseBody)
+                try {
+                    val responseBody = response.body?.string()
+                    Log.d("FetchJobsResponse", "Raw response: $responseBody") // Log the raw response
 
-                    // Parse JSON and update the list
-                    for (i in 0 until jsonArray.length()) {
-                        val jobObject = jsonArray.getJSONObject(i)
-                        val jobPost = JobPost(
-                            employerId = jobObject.getString("employer_id"),
-                            jobTitle = jobObject.getString("job_title"),
-                            companyName = jobObject.getString("company_name"),
-                            jobDescription = jobObject.getString("job_description"),
-                            salaryRange = jobObject.getString("salary_range"),
-                            jobType = jobObject.getString("job_type"),
-                            jobLocation = jobObject.getString("job_location")
-                        )
-                        jobPostList.add(jobPost)
+                    if (response.isSuccessful && !responseBody.isNullOrEmpty()) {
+                        val jsonArray = JSONArray(responseBody)
+
+                        if (jsonArray.length() == 0) {
+                            activity?.runOnUiThread {
+                                Toast.makeText(requireContext(), "No jobs found.", Toast.LENGTH_SHORT).show()
+                            }
+                            return
+                        }
+
+                        // Parse JSON and populate the list
+                        for (i in 0 until jsonArray.length()) {
+                            val jobObject = jsonArray.getJSONObject(i)
+                            val jobPost = JobPost(
+                                employerId = jobObject.optString("employer_id", "N/A"),
+                                jobTitle = jobObject.optString("job_title", "N/A"),
+                                companyName = jobObject.optString("company_name", "N/A"),
+                                jobDescription = jobObject.optString("job_description", "N/A"),
+                                salaryRange = jobObject.optString("salary_range", "N/A"),
+                                jobType = jobObject.optString("job_type", "N/A"),
+                                jobLocation = jobObject.optString("job_location", "N/A")
+                            )
+                            jobPostList.add(jobPost)
+                        }
+
+                        // Update the UI on the main thread
+                        activity?.runOnUiThread {
+                            jobPostAdapterApplicant.notifyDataSetChanged()
+                        }
+                    } else {
+                        Log.e("FetchJobsResponse", "Server error: ${response.code}")
+                        activity?.runOnUiThread {
+                            Toast.makeText(requireContext(), "Server error: ${response.code}", Toast.LENGTH_SHORT).show()
+                        }
                     }
-
-                    // Update the UI on the main thread
+                } catch (e: Exception) {
+                    Log.e("FetchJobsError", "Error processing response: ${e.message}")
                     activity?.runOnUiThread {
-                        jobPostAdapterApplicant.notifyDataSetChanged()
+                        Toast.makeText(requireContext(), "Error loading jobs. Please try again.", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
