@@ -61,7 +61,7 @@ class PlaceholderFragment : Fragment() {
     // Function to fetch jobs and merge them with cached data
     private fun fetchJobs() {
         val request = Request.Builder()
-            .url("http://10.0.2.2/api/fetch_jobs.php") // Replace with your actual URL
+            .url("http://100.83.40.185/api/fetch_jobs.php") // Replace with your actual URL
             .build()
 
         client.newCall(request).enqueue(object : Callback {
