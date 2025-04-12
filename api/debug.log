@@ -1,0 +1,234 @@
+Array
+(
+    [employer_id] => 1
+    [job_title] => dev
+    [company_name] => etits company
+    [job_description] => kahit ano
+    [salary_range] => 6969-5000
+    [job_type] => Full-Time
+    [job_location] => secret
+)
+Array
+(
+    [employer_id] => 1
+    [job_title] => dev
+    [company_name] => etits company
+    [job_description] => kahit ano
+    [salary_range] => 6969-5000
+    [job_type] => Full-Time
+    [job_location] => secret
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+    [employer_id] => 1
+    [job_title] => dev
+    [company_name] => etits company
+    [job_description] => kahit ano
+    [salary_range] => 6969-5000
+    [job_type] => Full-Time
+    [job_location] => secret
+)
+Array
+(
+)
+Array
+(
+    [employer_id] => 2
+    [job_title] => hackerist
+    [company_name] => linux
+    [job_description] => dapat hackerist
+    [salary_range] => 6969-5000
+    [job_type] => Full-Time
+    [job_location] => secret para malupet
+)
+Array
+(
+)
+Array
+(
+    [employer_id] => 2
+    [job_title] => hackerist
+    [company_name] => acer
+    [job_description] => dapat hackerist
+    [salary_range] => 9999
+    [job_type] => Full-Time
+    [job_location] => secret lang dapat
+)
+Array
+(
+    [employer_id] => 2
+    [job_title] => hackerist
+    [company_name] => acer
+    [job_description] => dapat hackerist
+    [salary_range] => 9999
+    [job_type] => Full-Time
+    [job_location] => secret lang dapat
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+    [employer_id] => 2
+    [job_title] => hackerist
+    [company_name] => acer
+    [job_description] => dapat hackerist
+    [salary_range] => 9999
+    [job_type] => Full-Time
+    [job_location] => secret lang dapat
+)
+Array
+(
+)
+Array
+(
+    [employer_id] => 2
+    [job_title] => hackerist
+    [company_name] => acer
+    [job_description] => dapat hackerist
+    [salary_range] => 9999
+    [job_type] => Full-Time
+    [job_location] => 11:41
+)
+Array
+(
+)
+2025-03-26 05:30:20 - Incoming POST Data: Array
+(
+    [employer_id] => 2
+    [job_title] => hackerist
+    [company_name] => acer
+    [job_description] => dapat hackerist
+    [salary_range] => 9999
+    [job_type] => Full-Time
+    [job_location] => 11:41
+)
+
+2025-03-26 05:37:00 - Incoming POST Data: Array
+(
+)
+
+2025-03-26 06:06:21 - Incoming POST Data: Array
+(
+)
+
+2025-03-26 07:01:48 - Incoming POST Data: Array
+(
+    [employer_id] => 2
+    [job_title] => hackerist
+    [company_name] => acer
+    [job_description] => dapat hackerist
+    [salary_range] => 9999
+    [job_type] => Full-Time
+    [job_location] => 11:41
+)
+
+2025-03-26 07:36:45 - Incoming POST Data: Array
+(
+)
+
+2025-03-26 07:48:43 - Raw Input Data: 
+2025-03-26 07:50:10 - Raw Input Data: {"employer_id":"26","job_title":"asd","company_name":"asd","job_description":"asd","salary_range":"123","job_type":"Full-Time","job_location":"asd"}
+2025-03-26 07:50:57 - Raw Input Data: {"employer_id":"26","job_title":"asf","company_name":"asf","job_description":"asf","salary_range":"456","job_type":"Full-Time","job_location":"asd"}
+2025-03-26 08:01:04 - Raw Input Data: {"employer_id":"26","job_title":"cvxcv","company_name":"xcvxcv","job_description":"xcvxcv","salary_range":"234","job_type":"Full-Time","job_location":"asd"}
+2025-03-26 12:34:58 - Raw Input Data: {"employer_id":"26","job_title":"ASD","company_name":"ASD","job_description":"ASD","salary_range":"132","job_type":"Full-Time","job_location":"ASD"}
+2025-03-27 04:54:24 - Raw Input Data: {"employer_id":"26","job_title":"HACKER","company_name":"ACER","job_description":"DAPAT MAGALING","salary_range":"8989","job_type":"Full-Time","job_location":"SECRET LANG MUNA"}
+2025-03-27 06:18:07 - Raw Input Data: {"employer_id":"26","job_title":"TEST TITILE","company_name":"TEST COMPANY","job_description":"TEST DESCRIPTION","salary_range":"1000","job_type":"Full-Time","job_location":"TEAST LCOATION"}
+2025-03-27 06:22:03 - Raw Input Data: {"employer_id":"26","job_title":"TESTJOB TITLE","company_name":"TEST COMPANY NAME","job_description":"TEST JOB DESCRIP","salary_range":"1202020","job_type":"Full-Time","job_location":"TEST JOB LOC"}
+2025-03-27 06:35:07 - Raw Input Data: {"employer_id":"26","job_title":"test3","company_name":"test3","job_description":"test3","salary_range":"1919","job_type":"Full-Time","job_location":"test3"}
+2025-03-27 07:07:21 - Raw Input Data: {"employer_id":"26","job_title":"test 4","company_name":"test 4","job_description":"test 4","salary_range":"123","job_type":"Full-Time","job_location":"test"}
+2025-03-27 07:55:39 - Raw Input Data: {"employer_id":"26","job_title":"TEST JOB TITLE","company_name":"TEST COMPANY  NAME","job_description":"TEST JOB DESCRIPTION","salary_range":"9999","job_type":"Full-Time","job_location":"TEST JOB LOCATION"}
+2025-03-27 07:56:30 - Raw Input Data: {"employer_id":"26","job_title":"TEST 2","company_name":"TEST 2","job_description":"TEST 2","salary_range":"","job_type":"Full-Time","job_location":"TEST 2"}
+2025-03-27 07:56:57 - Raw Input Data: {"employer_id":"26","job_title":"ASDASDASD","company_name":"ASDASDAS","job_description":"ASDASDASDAS","salary_range":"123321","job_type":"Full-Time","job_location":"DADASSDASD"}
+2025-03-27 07:57:10 - Raw Input Data: {"employer_id":"26","job_title":"ASDASD","company_name":"DASDADAS","job_description":"ASDADADAS","salary_range":"131313","job_type":"Full-Time","job_location":"DASDASDASD"}
+2025-03-27 07:57:23 - Raw Input Data: {"employer_id":"26","job_title":"ASDASDASD","company_name":"ASDADAD","job_description":"ASDADADA","salary_range":"123131","job_type":"Full-Time","job_location":"SADASDAD"}
+2025-03-27 07:57:32 - Raw Input Data: {"employer_id":"26","job_title":"ASDADADADADASD","company_name":"ASDADADA","job_description":"WQEQDQDQ","salary_range":"123131","job_type":"Full-Time","job_location":"ASDADADA"}
+2025-03-27 07:57:41 - Raw Input Data: {"employer_id":"26","job_title":"QWEQEQEQ","company_name":"QEQEQWEQWE","job_description":"ASDADAWD","salary_range":"123131","job_type":"Full-Time","job_location":"ASDADADAD"}
+2025-03-27 07:57:51 - Raw Input Data: {"employer_id":"26","job_title":"ASDASDAD","company_name":"ASDADADAD","job_description":"ASDASDAD","salary_range":"11113","job_type":"Full-Time","job_location":"ASDASD"}
+2025-03-27 07:58:02 - Raw Input Data: {"employer_id":"26","job_title":"ADSADASDA","company_name":"DASDASDA","job_description":"DASDASDASDA","salary_range":"21341342","job_type":"Full-Time","job_location":"SADADASDASD"}
+2025-03-27 07:58:11 - Raw Input Data: {"employer_id":"26","job_title":"123123","company_name":"123131","job_description":"12313123","salary_range":"12313","job_type":"Full-Time","job_location":"123131"}
+2025-03-27 07:58:30 - Raw Input Data: {"employer_id":"26","job_title":"12313123","company_name":"123131","job_description":"312312312","salary_range":"23131","job_type":"Full-Time","job_location":"12313131"}
+2025-03-27 10:35:00 - Raw Input Data: {"employer_id":"26","job_title":"waeaw","company_name":"ewaewae","job_description":"aweaweawe","salary_range":"12313","job_type":"Freelance","job_location":"qwwaea"}
+2025-03-27 10:45:16 - Raw Input Data: {"employer_id":"26","job_title":"asdasd","company_name":"asdas","job_description":"sdasd","salary_range":"14324","job_type":"Full-Time","job_location":"asdasdasd"}
+2025-03-27 17:49:48 - Raw Input Data: {"employer_id":"26","job_title":"LF Web Developer","company_name":"Acer","job_description":"hanap kami batak sa web, pero yung sweldo mababa lang, kung hindi labag sa kalooban mo. message mo kami agad sa email namin","salary_range":"1000","job_type":"Full-Time","job_location":"Dagupan, Pangasinan"}
+2025-03-27 17:52:28 - Raw Input Data: {"employer_id":"26","job_title":"HIRING!! TAGA AYOS NG REF","company_name":"Magic Appliances","job_description":"nakuryente yung taga-ayos namin ng ref hahaha ay sorry natawa, kaya naghahanap kami ng kapalit, ASAP! baka mabuhay pa 'to gago","salary_range":"500000","job_type":"Contract","job_location":"Lingayen Branch"}
+2025-03-27 17:54:21 - Raw Input Data: {"employer_id":"26","job_title":"IT SUPOT DESK","company_name":"Converse Internet","job_description":"hanap supot hahahaha supot! hindi pa tuli! kupal! gago! tanga! inutil! tarantado!","salary_range":"99999999","job_type":"Internship","job_location":"Lugar ng mga supot"}
+2025-03-27 18:13:59 - Raw Input Data: {"employer_id":"26","job_title":"eededed","company_name":"qwwe","job_description":"ujujsxce","salary_range":"12134","job_type":"Full-Time","job_location":"ew2e2"}
+2025-03-27 18:15:12 - Raw Input Data: {"employer_id":"26","job_title":"sscd","company_name":"ddsd","job_description":"dsfsdf","salary_range":"232","job_type":"Full-Time","job_location":"dfdf"}
+2025-03-27 18:16:26 - Raw Input Data: {"employer_id":"26","job_title":"dscs","company_name":"sdcsdc","job_description":"sdds","salary_range":"342","job_type":"Part-Time","job_location":"fvdg"}
+2025-03-27 18:17:58 - Raw Input Data: {"employer_id":"26","job_title":"dfsd","company_name":"sdfdsf","job_description":"dsfdf","salary_range":"43534","job_type":"Full-Time","job_location":"dfad"}
+2025-03-27 18:18:48 - Raw Input Data: {"employer_id":"26","job_title":"sdfds","company_name":"dfdf","job_description":"fff","salary_range":"43","job_type":"Full-Time","job_location":"dafg"}
+2025-03-27 18:19:22 - Raw Input Data: {"employer_id":"26","job_title":"sddsc","company_name":"dca","job_description":"dcacd","salary_range":"3243","job_type":"Full-Time","job_location":"dsdafsaf"}
+2025-03-27 18:19:58 - Raw Input Data: {"employer_id":"26","job_title":"fvs","company_name":"fvfvfv","job_description":"vdfvv","salary_range":"44","job_type":"Full-Time","job_location":"dffg"}
+2025-03-27 18:22:02 - Raw Input Data: {"employer_id":"26","job_title":"dsafaf","company_name":"sdfdfad","job_description":"afdfafdaffasfaefaeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwee","salary_range":"3424234","job_type":"Full-Time","job_location":"fsdfef"}
+2025-03-27 18:23:14 - Raw Input Data: {"employer_id":"26","job_title":"dsddddcsdc","company_name":"cdcsdc","job_description":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv","salary_range":"2342423","job_type":"Full-Time","job_location":"322"}
+2025-03-27 18:23:58 - Raw Input Data: {"employer_id":"26","job_title":"ddsd","company_name":"dsdfdsfsd","job_description":"dcdsddddddddddkkkkkkkkkkkkkkkkkkkkeeeeeeeeeeeeeeeeeeeeooooooooooooooooooaaaaaaaaaaaaaaaaa","salary_range":"342334","job_type":"Full-Time","job_location":"35124"}
+2025-03-27 18:27:48 - Raw Input Data: {"employer_id":"26","job_title":"ffeferrtrterf","company_name":"dfafdf","job_description":"r4fefawfe","salary_range":"3245","job_type":"Full-Time","job_location":"fgfgfgg"}
+2025-03-27 18:28:03 - Raw Input Data: {"employer_id":"26","job_title":"233dfsssdfsddfdsfd","company_name":"efef","job_description":"dffsdfef","salary_range":"3233","job_type":"Full-Time","job_location":"fsdfs"}
+2025-03-27 18:28:35 - Raw Input Data: {"employer_id":"26","job_title":"eeddf","company_name":"dddddddddddddddddd","job_description":"dfsf","salary_range":"343","job_type":"Full-Time","job_location":"dsdf"}
+2025-03-27 18:30:49 - Raw Input Data: {"employer_id":"26","job_title":"asdas","company_name":"DFSDFDFFDFD","job_description":"EFEFE","salary_range":"3442","job_type":"Full-Time","job_location":"DFGGA"}
+2025-03-27 18:31:07 - Raw Input Data: {"employer_id":"26","job_title":"EFDAFE","company_name":"SDFD","job_description":"DADDCDC","salary_range":"3433","job_type":"Full-Time","job_location":"DAD"}
+2025-03-29 18:07:54 - Raw Input Data: {"employer_id":"26","job_title":"HACKER","company_name":"ACER","job_description":"hINDI DAPAT MAHINA, DAPAT MAGALING","salary_range":"123","job_type":"Full-Time","job_location":"SECRET LANG"}
+2025-03-29 19:20:33 - Raw Input Data: {"employer_id":"26","job_title":"WE NEED HACKER!!!","company_name":"ACER","job_description":"DAPAT MAGALING, HINDI BASTA BASTA.","salary_range":"999","job_type":"Contract","job_location":"SECRET LANG MUNA, PERSONAL NATIN PAG USAPAN"}
+2025-03-29 19:22:29 - Raw Input Data: {"employer_id":"26","job_title":"FULL STACK DEV","company_name":"ACER","job_description":"DAPAT BATAK","salary_range":"6969","job_type":"Full-Time","job_location":"DEXTERS LABORATORY"}
+2025-03-30 05:42:47 - Raw Input Data: {"employer_id":"26","job_title":"Shabu Vendor","company_name":"Acer","job_description":"DAPAT magaling magtago, hindi to BASTA basta","salary_range":"9999","job_type":"Contract","job_location":"Etivac"}
+2025-03-30 10:07:53 - Raw Input Data: {"employer_id":"26","job_title":"asd","company_name":"asd","job_description":"ads","salary_range":"213","job_type":"Full-Time","job_location":"da"}
+2025-03-30 10:58:18 - Raw Input Data: {"employer_id":"26","job_title":"as","company_name":"das","job_description":"asd","salary_range":"123","job_type":"Part-Time","job_location":"asd"}
+2025-03-30 11:02:09 - Raw Input Data: {"employer_id":"26","job_title":"Test Stay","company_name":"STAY","job_description":"TESTING IT IF THE JOB STAYS EVEN I CLOSED THE APP","salary_range":"1234","job_type":"Full-Time","job_location":"PAITAN"}
+2025-03-30 11:02:35 - Raw Input Data: {"employer_id":"26","job_title":"QWEQWE","company_name":"QWEQWE","job_description":"QWEQWE1231","salary_range":"123123","job_type":"Full-Time","job_location":"AWSDASD"}
+2025-03-30 11:11:56 - Raw Input Data: {"employer_id":"26","job_title":"ASDASDcom.example.last","company_name":"ASDASD","job_description":"ASDSAD","salary_range":"123123","job_type":"Full-Time","job_location":"ASDASDASD"}
+2025-03-30 11:12:27 - Raw Input Data: {"employer_id":"26","job_title":"ASDASD","company_name":"ASDADS","job_description":"ASDASDASD","salary_range":"2314","job_type":"Full-Time","job_location":"SADASDAS"}
+2025-03-30 11:14:39 - Raw Input Data: {"employer_id":"26","job_title":"sadasdcom.example.lastasdasd","company_name":"dasdad","job_description":"sdasdas","salary_range":"214124","job_type":"Full-Time","job_location":"asdasd"}
+2025-03-30 11:21:29 - Raw Input Data: {"employer_id":"26","job_title":"asd","company_name":"asdasd","job_description":"asdasd","salary_range":"123123","job_type":"Full-Time","job_location":"asdasdad"}
+2025-03-30 11:21:41 - Raw Input Data: {"employer_id":"26","job_title":"asdasdad","company_name":"asdasd","job_description":"asdasdad","salary_range":"14124123","job_type":"Full-Time","job_location":"asdsada"}
+2025-03-30 14:55:59 - Raw Input Data: {"employer_id":"26","job_title":"aweaweawe","company_name":"aweawe","job_description":"aweaweawew","salary_range":"12312423","job_type":"Full-Time","job_location":"sadasda"}
+2025-03-30 15:13:40 - Raw Input Data: {"employer_id":"42","job_title":"sadasd","company_name":"sadsad","job_description":"asdsada","salary_range":"21211","job_type":"Full-Time","job_location":"asdasd"}
+2025-03-30 15:23:17 - Raw Input Data: {"employer_id":"42","job_title":"sdas","company_name":"sadadd","job_description":"asddd","salary_range":"1243","job_type":"Full-Time","job_location":"asda"}
+2025-03-30 15:29:59 - Raw Input Data: {"employer_id":"42","job_title":"sdad","company_name":"postmantes","job_description":"postmantest","salary_range":"21","job_type":"Full-Time","job_location":"postmantest"}
+2025-03-30 15:31:41 - Raw Input Data: {"employer_id":"42","job_title":"sacsfqw","company_name":"qwdqfq","job_description":"qfqfqsz","salary_range":"12241","job_type":"Full-Time","job_location":"scafasf"}
+2025-03-30 15:40:53 - Raw Input Data: {"employer_id":"42","job_title":"ADdasda","company_name":"sadada","job_description":"sdadasd","salary_range":"12412","job_type":"Full-Time","job_location":"sdasd"}
+2025-03-30 15:41:57 - Raw Input Data: {"employer_id":"42","job_title":"asdsaddasandroid.content.Context","company_name":"ads","job_description":"qwe","salary_range":"124","job_type":"Full-Time","job_location":"sda"}
+2025-03-30 15:42:46 - Raw Input Data: {"employer_id":"42","job_title":"dsa","company_name":"ads","job_description":"qwr","salary_range":"2432","job_type":"Full-Time","job_location":"sda"}
+2025-03-30 15:59:00 - Raw Input Data: {"employer_id":"42","job_title":"DASF","company_name":"ASFASF","job_description":"124RQW","salary_range":"1243","job_type":"Full-Time","job_location":"WSAC"}
+2025-03-30 15:59:21 - Raw Input Data: {"employer_id":"42","job_title":"QDDASC","company_name":"DWASC","job_description":"QEWDASC","salary_range":"1352435","job_type":"Full-Time","job_location":"ASCZX"}
+2025-03-30 16:01:26 - Raw Input Data: {"employer_id":"26","job_title":"das","company_name":"dsasd","job_description":"asdas","salary_range":"235235","job_type":"Full-Time","job_location":"asdasd"}
+2025-03-30 16:11:56 - Raw Input Data: {"employer_id":"26","job_title":"asdfgh","company_name":"asdfg","job_description":"asdfg","salary_range":"12345","job_type":"Full-Time","job_location":"dfghj"}
+2025-03-30 16:19:10 - Raw Input Data: {"employer_id":"26","job_title":"qweqweqwe","company_name":"qweq","job_description":"sdasdad","salary_range":"124314","job_type":"Full-Time","job_location":"asdasdasd"}
+2025-03-30 16:20:51 - Raw Input Data: {"employer_id":"26","job_title":"asd","company_name":"tfg","job_description":"asfc","salary_range":"142","job_type":"Full-Time","job_location":"sdafgh"}
+2025-03-30 16:33:47 - Raw Input Data: {"employer_id":"26","job_title":"asdasd","company_name":"asdasd","job_description":"fasfda","salary_range":"1352","job_type":"Full-Time","job_location":"saddasd"}
+2025-03-30 16:37:13 - Raw Input Data: {"employer_id":"26","job_title":"asdasdandroid.content.Context","company_name":"qweqwasd","job_description":"dasdas","salary_range":"123113","job_type":"Full-Time","job_location":"asdasd"}
+2025-03-30 16:39:46 - Raw Input Data: {"employer_id":"26","job_title":"asdada","company_name":"adada","job_description":"asdasdas","salary_range":"14134","job_type":"Full-Time","job_location":"asfasf"}
+2025-03-30 16:39:58 - Raw Input Data: {"employer_id":"26","job_title":"asfasf","company_name":"asfadf","job_description":"afadfa","salary_range":"134135135","job_type":"Full-Time","job_location":"sfafas"}
+2025-03-30 16:40:55 - Raw Input Data: {"employer_id":"26","job_title":"asdasdasd","company_name":"asdasdasd","job_description":"asdasdasds","salary_range":"1214312","job_type":"Full-Time","job_location":"sdasd"}
+2025-03-30 16:43:01 - Raw Input Data: {"employer_id":"42","job_title":"qw","company_name":"qew","job_description":"qwe","salary_range":"124","job_type":"Full-Time","job_location":"asd"}
+2025-03-30 16:58:09 - Raw Input Data: {"employer_id":"42","job_title":"wae","company_name":"qwe","job_description":"asdasd","salary_range":"12431","job_type":"Full-Time","job_location":"asdasd"}
+2025-03-30 17:03:36 - Raw Input Data: {"employer_id":"42","job_title":"aweawweawe","company_name":"awehahahahahahahha","job_description":"asdasdas","salary_range":"1111154412235","job_type":"Full-Time","job_location":"asdasd"}
+2025-03-30 17:04:42 - Raw Input Data: {"employer_id":"42","job_title":"waeaw","company_name":"asdasdasdasd","job_description":"asdas","salary_range":"124141","job_type":"Full-Time","job_location":"asdasdasd"}
+2025-03-30 17:05:04 - Raw Input Data: {"employer_id":"42","job_title":"aa","company_name":"a","job_description":"qwe","salary_range":"123","job_type":"Full-Time","job_location":"asd"}
+2025-03-30 17:06:34 - Raw Input Data: {"employer_id":"42","job_title":"asdas","company_name":"asdasdasdaasdasdasdasd","job_description":"asdasd","salary_range":"124134","job_type":"Full-Time","job_location":"asdasd"}
+2025-03-30 17:07:02 - Raw Input Data: {"employer_id":"42","job_title":"wae","company_name":"asdasd","job_description":"asdas","salary_range":"143","job_type":"Full-Time","job_location":"asdasd"}
+2025-03-30 17:10:59 - Raw Input Data: {"employer_id":"42","job_title":"asdsad","company_name":"asddasdasdasdasdasdasdasd","job_description":"asdasdasd","salary_range":"12334","job_type":"Full-Time","job_location":"asdasd"}
+2025-03-30 17:18:16 - Raw Input Data: {"employer_id":"42","job_title":"awe","company_name":"aw","job_description":"asd","salary_range":"123","job_type":"Full-Time","job_location":"asd"}
+2025-03-30 17:21:05 - Raw Input Data: {"employer_id":"42","job_title":"Test Title","company_name":"Test Company","job_description":"asd","salary_range":"124","job_type":"Full-Time","job_location":"Test Location"}
+2025-03-30 17:21:51 - Raw Input Data: {"employer_id":"42","job_title":"wae","company_name":"wae","job_description":"wa","salary_range":"432","job_type":"Full-Time","job_location":"eeeeeeeeeeeeeeeeeeeeeeee"}
+2025-03-30 17:24:51 - Raw Input Data: {"employer_id":"42","job_title":"waeawe","company_name":"sd","job_description":"aw","salary_range":"1243134","job_type":"Full-Time","job_location":"asdasdasd"}
+2025-03-30 18:12:43 - Raw Input Data: {"employer_id":"26","job_title":"awe","company_name":"asd","job_description":"awe","salary_range":"124","job_type":"Full-Time","job_location":"qwe"}
+2025-03-30 21:37:53 - Raw Input Data: {"employer_id":"26","job_title":"HACKER","company_name":"ACER","job_description":"ASDASDASD","salary_range":"1243","job_type":"Full-Time","job_location":"SUAL"}
+2025-03-30 21:43:44 - Raw Input Data: {"employer_id":"26","job_title":"araw","company_name":"wra","job_description":"awr","salary_range":"124","job_type":"Full-Time","job_location":"eq"}
+2025-03-30 22:38:11 - Raw Input Data: {"employer_id":"26","job_title":"wqdas","company_name":"qwdas","job_description":"wfqa","salary_range":"14","job_type":"Full-Time","job_location":"asc"}
+2025-03-30 23:40:33 - Raw Input Data: {"employer_id":"26","job_title":"awesda","company_name":"qwe","job_description":"qwe","salary_range":"123","job_type":"Full-Time","job_location":"asd"}
+2025-03-31 00:06:38 - Raw Input Data: {"employer_id":"26","job_title":"TEST TITLE","company_name":"TEST COMPANY NAME","job_description":"TEST JOB DESCRIPTION","salary_range":"9999","job_type":"Full-Time","job_location":"TEST JOB LOCATION"}
+2025-03-31 04:32:37 - Raw Input Data: {"employer_id":"26","job_title":"TEST 5","company_name":"TEST 5","job_description":"TEST 5","salary_range":"123","job_type":"Full-Time","job_location":"TEST5"}
+2025-03-31 05:59:16 - Raw Input Data: {"employer_id":"26","job_title":"eawrawf","company_name":"asdas","job_description":"dasd","salary_range":"21351","job_type":"Full-Time","job_location":"asdasd"}
+2025-03-31 07:34:22 - Raw Input Data: {"employer_id":"26","job_title":"gagagagag","company_name":"hahahah","job_description":"hahahah","salary_range":"646646464","job_type":"Full-Time","job_location":"hahahahahah"}
+2025-03-31 08:55:48 - Raw Input Data: {"employer_id":"26","job_title":"WEB DEV","company_name":"ACER","job_description":"DAPAT MAGALING","salary_range":"9999","job_type":"Full-Time","job_location":"DAGUPAN"}
+2025-03-31 09:00:27 - Raw Input Data: {"employer_id":"45","job_title":"sdfgh","company_name":"sdfg","job_description":"sdfg","salary_range":"12345","job_type":"Full-Time","job_location":"dfg"}
